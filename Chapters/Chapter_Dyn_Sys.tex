@@ -1,0 +1,397 @@
+\chapter{Dynamical Systems} \lhead{\emph{Dynamical Systems}}
+
+This chapter on dynamical systems is meant to provide a comprehensive introduction to the mathematical framework and definitions used to 
+describe and characterize continuous and discrete dynamical systems and establish key analytical tools such as stability analysis and 
+Lyapunov exponents. In this chapter, I adhere to the definitions and theorems outlined by \cite{dilao2023dynamical} unless stated otherwise. 
+For detailed proofs and additional references, please refer to their work.
+
+\section{Introduction to Dynamical Systems}
+
+\begin{definition}
+    Let $\mathscr{S}$ be a system (physical, mathematical, biological etc.) described by a finite number of state variables $x = (x_1, \cdots, x_n) \in \mathbb{R}^n$.
+    At time $t_0$ the state of the system is specified by the values of the state variables $x(t_0) = (x_1(t_0), \cdots, x_n(t_0))$.
+    If there is an operator $g_t : U \subseteq \mathbb{R}^n \rightarrow U$ such that:
+
+    \begin{enumerate}
+        \item $g_t(x(0)) = x(t)$
+        \item $(g_t \circ g_s)(x(0)) = (g_{t+s})(x(0)) = x(t + s)$
+        \item $g_0(x(t)) = x(t)$
+    \end{enumerate}
+    then $U$ and $g_t$ define a \textit{deterministic dynamical system} of finite dimension $n$.
+    \label{def:dyn_sys}
+\end{definition}
+
+The set $U \subseteq \mathbb{R}^n$ of possible state space values is the \textit{phase space} or \textit{state space} of the System $\mathscr{S}$. The phase space of a 
+system with $n$ state variables can be the entire space $\mathbb{R}^n$, a subset of $\mathbb{R}^n$ or a lower dimensional submanifold of dimension $m < n$.
+
+The study of a dynamical system involves the definition of a phase space $U$ and an evolution equation to obtain the operator $g_t$ and analyze its properties.
+
+\subsection{Continuous Dynamical Systems}
+
+Let $f(x,t)$ be a continuous function defined on an open set $U \times I \in \mathbb{R}^n \times \mathbb{R}$. Define the system of ordinary differential equations of order $n$
+
+\begin{equation}
+    \frac{\,dx}{\,dt} = f(x, t)
+    \label{eq:diff_eq_gen}
+\end{equation}
+
+where $x=(x_1, \cdots, x_n) \in U$, $f(x,t)=(f_1(x,t), \cdots, f_n(x,t)) : U \times I \rightarrow U$ and $t \in I \subseteq \mathbb{R}$. The dependent variables are the
+components of the vector $x\in U$ and $t$ is the independent variable. The set $U$ is the phase space of the system, the set $U \times I$ is referred to as the 
+\textit{extended phase space}.
+
+The solution of the differential equation \ref{eq:diff_eq_gen} is the map
+$\phi(t) : I \rightarrow U$ such that
+
+\begin{equation}
+    \frac{\,d \phi}{\, dt} = f(\phi(t), t)
+\end{equation}
+
+The solution of the initial value problem with $x_0 \in U$
+
+\begin{align}
+    \dot{x} &= f(x) \\
+    x(t_0) &= x_0
+\end{align}
+
+is also often written as $\phi(t;t_0)$, $\phi(t;x_0)$ or $\phi_t(x_0)$ to highlight the dependence of the solutions on the 
+initial conditions.
+
+If the function $f$ fulfills $f(x+y,t) = f(x,t) + f(y, t)$ for every $x,y \in U$ and $t \in I$, and if $\phi_1(t)$ and $\phi_2(t)$ are both solutions with 
+$\phi_1(t) \neq \phi_2(t)$, then $\psi(t) = \phi_1(t) + \phi_2(t)$ is also a solution of \ref{eq:diff_eq_gen}. In this case, the system of equations is linear.
+
+If the function $f$ does not explicitly depend on time, the system of differential equations $\dot{x} = f(x)$ is \textit{autonomous}. Non-autonomous differential
+equations are straightforwardly reduced to autonomous ones by increasing the phase space dimension by 1 and introducing the new independent variable $\tau = t$ and the 
+equation $\frac{\,d\tau}{\,dt} = 1$ (c.f. \cite[p. 9]{strogatz2018nonlinear}).
+
+A system of autonomous differential equations defines a \textit{vector field} $X$ in phase space, also called a \textit{phase flow}: the components of a vector field $X$,
+associated with the coordinates $x_1, \cdots x_n$, are the functions $f_1(x), \cdots, f_n(X)$. The vector $f(x)=(f_1(x), \cdots, f_n(x))$ is a tangent vector to the 
+image of $\phi(t)$ in phase space.
+
+In the following I give some core definitions for (continuous) dynamical systems. For the upcoming definitions, let $\phi_t(x)$ be the solution to the equation $\dot{x}=f(x)$
+with $x\in\mathbb{R}^n$
+
+\begin{definition}[Orbits]
+    The \textit{orbit} of a point $x_0 \in U$ is the set $\mathscr{O}_{x_0} = \{x \in U : x = \phi_t(x_0), t \in I \}$.  
+    A function $\phi(t)$ is a periodic solution if there is a constant $T>0$ such that 
+\begin{equation}
+    \phi(T) = \phi(t+T)
+    \label{eq:periodic}
+\end{equation}
+for all $t \in \mathbb{R}$. A periodic solution of a differential equation is a \textit{periodic orbit}.
+\end{definition}
+
+\begin{definition}[Fixed points]
+    A point $x_0$ is called a \textit{fixed point} if 
+    $\phi_t(x_0)=x_0$ $\forall t$, i.e. the orbit of $x_0$ is only itself $\mathscr{O} = \{x_0\}$. This implies that the derivative of $f$ vanishes at $x_0$: $\dot{f}(x_0) = 0$.
+\end{definition}
+
+\begin{definition}[Nullclines]
+    For the components $f_i$ of $f$, the equations $f_i(x) = 0$ define curves called \textit{nullclines}. On the nullcline $f_i(x)=0$, 
+    the vector field component along the direction of the coordinate $x_i$ vanishes.
+\end{definition}
+
+\begin{definition}[$\omega$-and $\alpha$-limiting sets] A point $y\in\mathbb{R}^n$ is in the \textit{$\omega$-limit} set of $x$, $\omega(x)$,
+    if there is a sequence $\{t_n\}_{n\in\mathbb{N}}$, with $t_n\rightarrow +\infty$, such that
+
+    \begin{equation}
+        \lim_{n\rightarrow\infty}\phi_{t_n}(x) = y.
+    \end{equation}
+
+    Similarly, if there is a sequence $\{t_n\}_{n\in\mathbb{N}}$ that instead has $t_n\rightarrow -\infty$ such that $\lim_{n\rightarrow\infty}\phi_{t_n}(x) = y$,
+    then  $y$ is in the \textit{$\alpha$-limit set} of $x$, $\alpha(x)$.
+\end{definition}
+
+Fixed points and periodic orbits are simultaneous $\alpha$-and $\omega$-limit sets.  $\alpha$-and $\omega$-limit sets are closed invariant subsets with respect to 
+the time evolution $\phi_t$. Based on these definitions we can define an attractor of a dynamical system.
+
+\begin{definition}[Attractor] A closed invariant subset $\mathcal{A}$ is called an \textit{attracting set} of a dynamical system if there is a neighborhood $\mathcal{U}$ 
+    of $\mathcal{A}$ such that for all $x \in \mathcal{U}$
+
+    \begin{align}
+        &\phi_t(x) \in \mathcal{U} \text{ } \forall t  &\lim_{t\rightarrow \infty}\phi_t(x) \in \mathcal{A}
+    \end{align}
+    
+    An attractor $\mathcal{A}$ is an attracting set which has a \textit{basin of attraction}
+
+    \begin{equation}
+        \mathcal{B}(\mathcal{A}) = \left\{ x \in U \vert \omega(x) \subset \mathcal{A} \right\}
+    \end{equation}
+    with non-zero (Lebesgue) measure.
+
+    Often the qualifier "strange" is added to the term attractor in literature. There is however no strict definition of this qualifier. 
+    It usually refers to attractors with properties such as: \begin{enumerate*}[label=(\roman*)] \item unusual geometry \item dimension is fractal, not an integer \item chaotic dynamics, 
+    trajectories separate exponentially fast (at least initially)\end{enumerate*}.
+
+
+\end{definition}
+
+So far we have not given any thought to the existence of a solution to Eq. \ref{eq:diff_eq_gen}. The theory of ordinary differential equations (ODE) provides us the following
+theorems about existence and uniqueness of solutions.
+
+\begin{theorem}[Local existance and uniqueness of solutions of ordinary differential equations]
+    Consider the differential equation \ref{eq:diff_eq_gen}, where $f(x,t)$ is a Lipschitz function in an open set $U \times I \subseteq \mathbb{R}^n \times \mathbb{R}$,
+    that is, $|f(x,t) - f(y,t)| \leq k|x-y|$ $ \forall x,y \in U, t \in I$ and $k \in \mathbb{R}$ is finite. Then, there are constants $\tau_1, \tau_2 > 0$ and a function
+    $\phi(t): I_1 \rightarrow \mathbb{R}^n$ solution of the differential equation \ref{eq:diff_eq_gen} where $\phi(t_0) = x_0$, $x_0 \in U, t_0 \in I_1 \subset I$, 
+    and $I_1 = \left[t_0-\tau_1, t_0+\tau_1\right]$.
+    
+    If there is another solution $\phi_2(t): I_2 \rightarrow \mathbb{R}^n$, with $\phi_2(t_0)=x_0$, and $I_2 = \left[ t_0-\tau_2, t_0+\tau_2 \right]$, then 
+    $\phi(t) = \phi_2(t)$ in the interval $\left[t_0-\tau_3, t_0+\tau_3\right]$ where $\tau_3 = \min(\tau_1, \tau_2)$.
+    
+    \label{theo:exis_ode_local}
+\end{theorem}
+
+This existence and uniqueness theorem is only valid locally in time. In the case where the phase space is compact and the vector field is continuously differentiable, there 
+is a stronger theorem that guarantees solutions are defined for all times.
+
+\begin{theorem}[Global existance and uniqueness of solutions of ordinary differential equations]
+    If there exists a bounded set $D$ in phase space, positively invariant under the flow $\phi_t$, meaning $\phi_t(D) \subseteq D$, then solutions with initial conditions
+    in $D$ are globally defined in time.
+    \label{theo:exis_ode_global}
+\end{theorem}
+
+From the existence and uniqueness theorem \ref{theo:exis_ode_local} for autonomous equations, it follows that the solutions of differential equations define a one-parameter
+group, the time $t$-(local) group of diffeomorphisms. That is 
+
+\begin{enumerate}
+    \item $\phi_t(x_0)$ is of class $C^r$ with $r \geq 1$
+    \item $\phi_0(x_0) = x_0$
+    \item $\phi_{t+s}(x_0) = \phi_{t}(\phi_s(x_0))$, $\forall t, s \in I$, where $I = \left[t_0-\tau, t_0+\tau\right]$.
+\end{enumerate}
+
+This means that the flow $\phi_t$ satisfies the conditions required in \ref{def:dyn_sys} to define a dynamical system on $U$.
+
+\subsection{Stability of Fixed points}
+
+\begin{definition}[Lyapunov Stability]
+    Let $x_0$ be a fixed point of the DE $\dot{x} = f(x)$, with $x_0 \in \mathbb{R}^n$, and let $\mathcal{U}(x_0)$, $\mathcal{V}_0(x_0)$ and $\mathcal{V}_1(x_0)$ 
+    be neighborhoods of $x_0$. The fixed point $x_0$ is Lyapunov stable if:
+
+    \begin{enumerate}
+        \item There is a neighborhood $\mathcal{U}(x_0)$ of $x_0$ such that the solutions $\phi_t(x)$ with $x\in \mathcal{U}(x_0)$ are defined $\forall t \geq 0$
+        \item For every sufficiently small neighborhood $\mathcal{V}_0(x_0) \subset \mathcal{U}(x_0)$ there is another neighborhood 
+              $\mathcal{V}_1(x_0) \subset \mathcal{V}_0(x_0)$ such that every solution $\phi_t(x)$ with $x\in \mathcal{V}_1(x_0)$ is contained in $\mathcal{V}_0(x)$.
+    \end{enumerate}
+    In addition, if $\phi_t(x) \rightarrow x_0$ for $t \rightarrow \infty$, then $x_0$ is \textit{asymptotically stable}. If a fixed point is not Lyapunov stable,
+    then it is \textit{unstable}.
+\end{definition}
+In the definition of Lyapunov stability, the condition $\phi_t(x)\rightarrow x_0$ for $t\rightarrow \infty$ is insufficient to guarantee the asymptotic stability of $x_0$
+because $\phi_t(x)$ can have large values and leave the neighborhood of $x_0$ before converging.
+
+In general, for nonlinear DEs, analyzing the stability of a fixed point can be difficult. At times, it is possible to find the \textit{Lyapunov function} and then 
+use the Lyapunov theorem to get information about the fixed point stability.
+
+\begin{definition}
+    Let $\mathcal{V}(x_0)$ be a neighborhood of the fixed point $x_0$ of a DE and $V(x): \mathcal{V}(x_0) \rightarrow \mathbb{R}$ a continuous, differentiable function
+    on $\mathcal{V}(x_0)$. If $V(x_0)=0$ and $V(x)>0$ for $x \in \mathcal{V}(x_0) \setminus \{x_0\}$, then $V(x)$ is a \textit{Lyapunov function}.
+\end{definition}
+
+The intuition of Lyapunov functions comes from the 2d case. In the neighborhood of the fixed point $x_0$, the projections of the level curves of the Lyapunov function
+$z=V(x)$ on the phase space are closed curves. On these curves, the vector field can only be tangent, so point inside or outside these curves. The following
+theorem generalizes this to higher dimensions.
+
+\begin{theorem}[Lyapunov theorem]
+    Let $x_0 \in \mathbb{R}^n$ be an isolated fixed point of the differential equation $\dot{x} = f(x)$. Let $\mathcal{V}(x_0)$ be a neighborhood of $x_0$ with 
+    the Lyapunov function $V:\mathcal{V}(x_0) \rightarrow\mathbb{R}$.
+
+    If $V(x)$ obeys the condition $\frac{dV}{dt} \leq 0$ in $\mathcal{V}(x_0) \setminus \{x_0\}$, then the fixed point $x_0$ is asymptotically stable. 
+\end{theorem}
+
+There is however no general method to construct a Lyapunov function. A different approach is to analyze the stability of a fixed point is through the linearization
+of the vector field around the fixed point. For that define the Jacobian matrix at the point $x_0$
+
+\begin{equation}
+    \boldsymbol{J}^t(x_0) = \frac{df^t(x)}{dx}(x_0).
+\end{equation}
+
+Then we can perturb the system around the fixed point by $\delta x$ and linearize the equation. This linear system is then much easier to analyze. It turns out that the
+behavior of the system depends on the eigenvalues of the Jacobian. This will be further discussed in section \ref{sec:evg_problem}.
+
+\subsection{Difference Equations as Dynamical Systems}
+
+Now we will shift our view towards the discrete case of dynamical systems. Consider the following equation
+
+\begin{equation}
+    x_{n+1} = f(x_n)
+    \label{eq:discr_de_gen}
+\end{equation}
+
+where $f$ is some continuous function and $n \in \mathbb{N}$. The evolution of the system is given by feeding the output at step $n$, $x_n$, back to the function $f$
+to obtain the next state of the system. Unlike systems defined by differential equations \ref{eq:diff_eq_gen}, which define a continuous group of phase space transformations,
+the parameter of systems defined by difference equations \ref{eq:discr_de_gen} is discrete. The solutions define a discrete transformation group.
+
+For difference equations, the notion of a vector field is no longer valid and the definitions of fixed point and stability must be adapted. The definitions of
+limit sets and attractors extend very naturally to discrete system.
+Note it is still common to speak of phase flows in discrete dynamical systems, although it is technically abuse of language.
+
+\begin{definition}
+    Consider a difference equation $x_{n+1} = f(x_n)$, where $f: I \rightarrow I$ is a continuous function and $I \subseteq \mathbb{R}^n$.
+    Let $f^k(x) = f(f^{k-1})(x)$ be the iterate of order $k$. A point $x^{\ast}\in \mathbb{R}^n$ in the phase space of the difference equation 
+    is called \textit{fixed point} of period $k$ if 
+    \begin{equation}
+        f^k(x^{\ast}) = x^{\ast}
+        \label{eq:dicr_fp}
+    \end{equation}
+\end{definition}
+
+The orbit of a point $x_0 \in I$ is the set $\mathscr{O}_{x_0} = \left\{x_0, f(x_0), f^2(x_0), \cdots \right\}$. An important result for fixed points in this context is 
+given by the following theorem
+
+\begin{theorem}[Brouwer's fixed point theorem]
+If $f:I \rightarrow I$ is continuous and surjective on $I \subset \mathbb{R}^n$ and I is compact and convex, then $f$ has at least one fixed point $x^{\ast} \in I$.
+\end{theorem}
+
+Next we need a notion of stability for difference equations: 
+
+\begin{definition}
+    A period $k$ fixed point $x^{\ast} \in I$ of the discrete DS is \textit{asymptotically stable}, if there is a neighborhood $\mathcal{V}(x^{\ast}) \subset I$ such that,
+    for every $x \in \mathcal{V}(x^{\ast})$, $\lim_{n\rightarrow \infty}f^{nk}(x) = x^{\ast}$.
+\end{definition}
+
+If $f: I \rightarrow I$ is differentiable in the neighborhood of a period $k$ fixed point $x^{\ast} \in I$, then we can make statements about the stability of $x^{\ast}$
+quite easily. In the one dimensional case $I \subset \mathbb{R}$ this can be seen most easily:
+
+Make a linear approximation of $f$ around the fixed point $x^{\ast}$
+
+\begin{equation}
+    f(x) \approx f(x^{\ast}) + f'(x^{\ast}) (x - x^{\ast})
+\end{equation}
+
+Thus, using $f(x^{\ast}) = x^{\ast}$
+
+\begin{align}
+    &x_{n+1} - x^{\ast} = f(x_n) - x^{\ast} \approx f(x^{\ast}) + f'(x^{\ast})(x_n - x^{\ast}) - x^{\ast} = f'(x^{\ast})(x_n - x^{\ast}) \nonumber\\ 
+    \Rightarrow &\frac{x_{n+1} - x^{\ast}}{x_n - x^{\ast}} = f'(x^{\ast}) 
+\end{align}
+
+which means that the derivative measures the rate at which successive iterations approach the fixed point. 
+If $|f'(x^{\ast})| < 1$, then the fixed point is asymptotically stable. If $|f'(x^{\ast})| > 1$ the fixed point is unstable. If $|f'(x^{\ast})| = 0$
+the fixed point is \textit{superstable}. Only at $|f'(x^{\ast})| = 1$ do we need more information such as higher order derivatives to decide stability.
+
+
+
+The Lyapunov stability concept remains valid for difference equations
+
+\begin{definition}[Lyapunov Stability]
+    A period $k$ fixed point $x^{\ast}$ of a difference equation is Lyapunov stable if, for every small enough neighborhood $\mathcal{V}_0(x^{\ast})$ of $x^{\ast}$, 
+    there is a neighborhood $\mathcal{V}_1(x^{\ast}) \subset \mathcal{V}_0(x^{\ast})$ such that $f^{nk}(x)\in \mathcal{V}_0(x^{\ast})$, for every 
+    $x \in \mathcal{V}_1(x^{\ast})$, $n\in\mathbb{N}$. 
+\end{definition}
+
+In higher dimensions the stability of difference equations depends on the eigenvalues Jacobian matrix, which can be used for a linear approximation around the fixed point.
+If the eigenvalues of the Jacobian are within the unit circle of the complex plain, so $|\lambda_i| < 1$, the fixed point is Lyapunov stable. The fixed points can be 
+further classified depending on whether the eigenvalues are real, purely imaginary etc. For details see \cite[Ch 1.4, Appendix A.3]{dilao2023dynamical}
+
+\section{Lyapunov Exponents} \label{sec:lya_exp}
+
+In many dynamical systems it can be observed that initial conditions close in phase space will diverge or contract exponentially in time. Furthermore, it can be observed that 
+such perturbations of an initial condition behave differently along different axis. Along some axis the difference will grow exponentially and along others it will contract.
+In the case of exponential growth this property is called \textit{sensitivity to initial conditions}, a characteristic of chaotic dynamics. This can be formalized by the 
+so-called \textit{Lyapunov exponents (LE)}, which together make up the \textit{Lyapunov spectrum} of a system.
+
+Let us first consider the one-dimensional case 
+
+\begin{equation*}
+    x_{n+1} = f(x_n)
+\end{equation*}
+
+with $x_n\in I \subseteq \mathbb{R}$. The mean value theorem gives us 
+
+\begin{equation}
+    |x_{n+1} - y_{n+1}| = |f(\xi)| \cdot |x_n - y_n|
+\end{equation}
+
+for some $\xi \in I$. Then 
+
+\begin{equation}
+    \ln|x_{n+p} - y_{n+p}| = p \frac{1}{p} \ln|f^{p'}(\xi_p)| + \ln|x_n - y_n|
+\end{equation}
+
+Now define 
+
+\begin{equation}
+    \lambda := \lim_{p\rightarrow \infty} \frac{1}{p} \ln|f^{p'}(\xi_p)|.
+    \label{eq:idea_le}
+\end{equation}
+
+For large enough $p$, we have
+
+\begin{equation}
+    |x_{n+p} - y_{n+p}| \simeq e^{\lambda p} |x_n - y_n|
+\end{equation}
+
+If $\lambda < 0$, the dynamical system is contracting and has no sensitivity to the initial conditions. If $\lambda > 0$, this dynamical system is locally expansive
+and sensitive to the initial condition.
+
+Therefore, in analogy to Eq. \ref{eq:idea_le}, in discrete one-dimensional dynamical systems the Lyapunov exponent is defined as 
+
+\begin{equation}
+    \lambda(x) := \lim_{n \rightarrow \infty} \frac{1}{n} \ln |f^{n'}(x)| = \lim_{n \rightarrow \infty} \frac{1}{n} \sum_{p=0}^{n-1} \ln |f'\left( f^p(x)\right) |.
+\end{equation}
+
+Now we can try to expand this idea to higher dimensions. Consider the $m$-dimensional discrete dynamical system
+
+\begin{equation}
+    x_{n+1} = F(x_n)
+\end{equation}
+
+where $x_n \in \mathbb{R}^m$. Let $x_0$ be an initial condition and $\delta x_0$ a small perturbation. Then we make the following linear approximation
+
+\begin{align}
+    F(x_0 + \delta x_0) &= F(x_0) + \boldsymbol{J}(x_0)\delta x_0 + \mathcal{O}(\|\delta x_0 \|^2) \\
+    \boldsymbol{J}(x_0) \delta x_0 &\approx F(x_0 + \delta x_0) - F(x_0) \label{eq:jacobian_perturb}
+\end{align}
+
+Thus, the time evolution of the perturbation is given as $\delta x_{n+1} = J(x_0) \delta x_{n}$. Due to linearity this can be written as
+
+\begin{equation}
+    \delta x_n = J(x_{0}) \cdots J(x_0)\delta x_0 = J^n(x_0) \delta x_0.
+\end{equation}
+
+If $|J^n(x_0) \delta x_0 | \simeq | e^{n\lambda} \delta x_0 |$, i.e. $\delta x_0$ is an eigenvector of $J^n(x_0)$, one can define a Lyapunov exponent of the system as 
+
+\begin{align}
+ \lambda(x_0)    =& \lim_{n \rightarrow \infty} \frac{1}{n} \ln \left\vert J^n(x_0) \frac{\delta x_0}{|\delta x_0|} \right\vert \nonumber \\
+                 =& \lim_{n \rightarrow \infty} \frac{1}{2n} \ln \left\vert \frac{\delta x_0}{|\delta x_0|}^{\dag} J^{n\dag}(x_0) J^n(x_0) \frac{\delta x_0}{|\delta x_0|} \right\vert \nonumber \\
+                 =& \lim_{n \rightarrow \infty} \frac{1}{2n} \ln \left\vert \frac{\delta x_0}{|\delta x_0|}^{\dag} H^n \frac{\delta x_0}{|\delta x_0|} \right\vert \\
+\end{align}
+
+where $\phantom{J}^{\dag}$ is the adjoint and $H^n(x_0):=J^{n\dag}(x_0)J^n(x_0)$. $H^n(x_0)$ is a Hermitian matrix, its eigenvalues 
+$\{\lambda_1, \cdots, \lambda_m\}$ are real and non-negative. We can then take perturbations parallel to the eigenvectors of $H^n(x_0)$. This way we get 
+$m$ different limits, the logarithms of the eigenvalues of $H^n(x_0)$. If at least one of the eigenvalues is positive the dynamical system has sensitivity
+to initial conditions because the $| e^{n\lambda} \delta x_0 |$ will below up exponentially fast.
+
+These ideas are formalized and the limits guaranteed by the following theorem
+
+\begin{theorem}[Oseledets Theorem]
+    Let $f:\mathbb{R}^m \rightarrow \mathbb{R}^m$ be a differentiable function and $\rho$ the density of an invariant measure for the dynamical system
+    $x_{n+1} = f(x_n)$. Consider the matrix
+    \begin{equation}
+        T^n_x = Df(f^{n-1}(x))Df(f^{n-2}(x))\cdots Df(x)
+    \end{equation}
+    and its adjoint $T^{n\dag}_x$. Then, the limit 
+    \begin{equation}
+        \lim_{n\rightarrow\infty}(T^{n\dag}_x T^n_x)^{\frac{1}{2n}} = \Lambda_x
+    \end{equation}
+    exists for almost every $x\in \mathbb{R}^m$. The logarithm of the eigenvalues of $\Lambda_x$ are the Lyapunov exponents of the dynamical system $x_{n+1} = f(x_n)$. 
+    Arrange the eigenvalues in descending order: $\lambda_1 > \lambda_2 > \cdots > \lambda_m$. Associated with these eigenvalues of $\Lambda_x$, 
+    there are vector subspaces $E^i_x$ with $i=1, \cdots, m$, such that 
+
+    \begin{equation*}
+        \mathbb{R}^m = E^1_x \subset E^2_x \subset \cdots 
+    \end{equation*}
+
+    and for which, if $v_i \in E^i_x \setminus E^{i+1}_x$, 
+    \begin{equation*}
+        \lim_{n \rightarrow \infty} \frac{1}{n} \ln \left\| T^n_x v_i \right\| = \lambda_i
+    \end{equation*}
+    For $v_1 \in E^1_x\setminus E^2_x$, then $\lambda_1$ is the largest eigenvalue of $\Lambda_x$. 
+\end{theorem}
+
+For differential equations, Lyapunov exponents are calculated with the solutions evaluated at discrete values of the continuous time variable $t$ and the above theorem holds.
+
+In general, the sum of Lyapunov exponents in dissipative systems is negative. In conservative systems, the sum is 0. In the case of strange attractors and limit cycles,
+there is always a zero Lyapunov exponent.
+
+Obtaining Lyapunov exponents from their definition is numerically impractical because they relate to the singular values of $T^{\frac{1}{t}}_t$ for large $t$. \cite{benettin1980lyapunov}
+presents an algorithm that allows for the numerical estimation of the Lyapunov exponents. \cite{vogt2022lyapunov} present an algorithm specifically for RNNs, which I will use
+in the evaluation section of this work. 

@@ -1,0 +1,40 @@
+\begin{figure}
+
+\begin{tikzpicture}[y=-1cm]
+
+\node (t1) at (1.5, -0.2) [above]{Stage 1};
+\node (t2) at (5.5, -0.2) [above]{Stage 2};
+\node (t3) at (9.5, -0.2) [above]{Stage 3};
+
+
+\foreach\y in {0,...,7} 
+{
+  \pgfmathtruncatemacro\yy{mod(abs(3.5-\y)+0.5,2)==0?\y:(\y<4?\y+3:\y-3)} % F value
+  \draw[-latex] (-1,\y) node [left] {$x(\y)$} -- (-0.05,\y);
+  \draw[-latex] (12,\y) -- (13,\y) node [right] {$\widehat{x}(\y)$};
+  \foreach\x in {0,1,2}
+  {
+    \draw[-latex] (4*\x,\y) --++ (2.95,0) ;
+    \draw(4*\x+3,\y) --++ (1,0);
+    \foreach\z in {0,3}
+      \node[circle,fill,inner sep=0.5mm] at (4*\x+\z,\y) {};
+    \pgfmathtruncatemacro\i{pow(2,\x)}
+    \pgfmathtruncatemacro\j{\i-2*\i*mod(div(\y,\i),2)} % delta y for the arrows
+    \node (A) at (4*\x,\y)      {};
+    \node (B) at (4*\x+3,\y+\j) {};
+    \draw[-latex,thick,red] (A) -- (B);
+    \ifnum\j < 0
+      \node[red] at (B) [shift={(225:0.2)}] {\tiny$+$};
+      \node[red] at (B) [shift={ (45:0.2)}] {\tiny$+$};
+    \else
+      \pgfmathtruncatemacro\k{mod(\y,\i)*(2-abs(\x-1))} % W exponent
+      \node[red] at (B) [shift={(315:0.2)}] {\tiny$+$};
+      \node[red] at (B) [shift={(135:0.2)}] {\tiny$-$};
+      \node at (4*\x-0.8, \y+\j) [shift={(0.4,0.3)}] {$e^{\frac{2 \pi i}{8}\cdot \k}$};
+    \fi
+  }
+}
+\end{tikzpicture}
+\caption{Visualization of a 3 stage radix-2 FFT algorithm}
+\label{fig:butterfly_fft}
+\end{figure}

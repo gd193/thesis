@@ -1,0 +1,55 @@
+\chapter{Appendix}
+
+\section{Proofs of Wavelet theorems}
+
+\subsection{Proof for orthogonality relation for the wavelet transform, theorem \ref{th:cwt_orth_rela}} \label{proof:cwt_orth_rela}
+
+\begin{proof}
+    The proof is very straight forward using the frequency representation of the WT shown in Eq. \ref{eq:cwt_with_ft}, the Dirac delta $\delta$ and it's Fourier representation
+    $2 \pi \delta(x) = \int_{\mathbb{R}} e^{ikx} dk$.
+
+    \begin{align}
+        & \int_{\mathbb{R}} \int_{\mathbb{R}} \mathscr{W}_{\psi}\{f\} \mathscr{W}_{\phi}\{g\}^{\ast} \frac{da db }{a^2} \\
+        &= \int_{\mathbb{R}} \int_{\mathbb{R}} \left\{ \sqrt{|a|} \int_{\mathbb{R}} \hat{f}(\omega) \hat{\psi}^{\ast}(a \omega) e^{ib \omega} d\omega \right\} \left\{ \sqrt{|a|} \int_{\mathbb{R}} \hat{g}^{\ast}(\eta) \hat{\phi}(a \eta) e^{-ib \eta} d\eta \right\} \frac{da db }{a^2} \\
+        &= 2\pi \int_{\mathbb{R}} \int_{\mathbb{R}} \int_{\mathbb{R}} \hat{f}(\omega) \hat{g}^{\ast}(\eta) \hat{\psi}^{\ast}(a \omega) \hat{\phi}(a \eta) \left\{ \frac{1}{2 \pi} \int_{\mathbb{R}} e^{ib(\omega - \eta)}\right\} \frac{da d\omega d\eta}{|a|} \\
+        &= 2\pi \int_{\mathbb{R}} \int_{\mathbb{R}} \int_{\mathbb{R}} \hat{f}(\omega) \hat{g}^{\ast}(\eta) \hat{\psi}^{\ast}(a \omega) \hat{\phi}(a \eta) \delta(\omega - \eta) \frac{da d\omega d\eta}{|a|} \\
+        &= 2\pi \int_{\mathbb{R}} \hat{f}(\omega) \hat{g}^{\ast}(\omega) \left\{ \int_{\mathbb{R}} \hat{\psi}^{\ast} (a \omega) \hat{\phi} (a \omega) \frac{da}{|a|} \right\} d \omega \label{eq:wt_orth_proof}
+    \end{align}
+    Simplify the second integral on the R.H.S of \ref{eq:wt_orth_proof} by substituting $a \omega = \zeta, \omega=\xi \rightarrow \frac{1}{|a|}\,da \,d\omega =  \,d\zeta \,d\xi$ 
+    \begin{equation}
+        \int_{\mathbb{R}} \hat{\psi}^{\ast} (a \omega) \hat{\phi} (a \omega) \frac{da}{|a|} = \int_{\mathbb{R}} \hat{\psi}^{\ast} (\zeta) \hat{\phi} (\zeta) d\zeta = C_{\psi, \phi}
+        \label{eq:wt_orth_proof_simple}
+    \end{equation}
+    Using \ref{eq:wt_orth_proof_simple} in \ref{eq:wt_orth_proof} and applying the Plancherel theorem \ref{th:plancherel} we obtain the result.
+    \begin{equation}
+        \int_{\mathbb{R}} \int_{\mathbb{R}} \mathscr{W}_{\psi}\{f\} \mathscr{W}_{\phi}\{g\}^{\ast} \frac{da db }{a^2} = 2\pi C_{\psi, \phi} \int_{\mathbb{R}} \hat{f}(\xi) \hat{g}^{\ast}(\xi) d\xi = C_{\psi, \phi} \int_{\mathbb{R}} f(t) g^{\ast}(t) dt
+    \end{equation}
+\end{proof}
+
+The proof of \ref{eq:orth_real} works analogous, just the integral bounds over $da$ must be adjusted.
+
+\subsection{Proof of Inverse continuous wavelet transform, definition \ref{def:icwt}} \label{proof:icwt}
+
+\begin{proof}
+    Using the orthogonality relation \ref{th:cwt_orth_rela} the proof is again very straight-forward. Let $g \in L_2(\mathbb{R})$ be an arbitrary function.
+
+    \begin{align}
+         \langle f, g \rangle_2 &= \frac{1}{C_{\psi, \phi}} \int_{\mathbb{R}} \int_{\mathbb{R}} \mathscr{W}_{\psi}\{f\}(a,b) \mathscr{W}_{\phi}\{g\}^{\ast}(a,b) \frac{\,da \,db}{a^2} \\
+                                &= \frac{1}{C_{\psi, \phi}} \int_{\mathbb{R}} \int_{\mathbb{R}} \mathscr{W}_{\psi}\{f\}(a,b) \left\{ \int_{\mathbb{R} g(t)^{\ast} \phi_{a,b}(t)\,dt} \right\} \frac{\,da \,db}{a^2} \\
+                                &= \frac{1}{C_{\psi, \phi}} \int_{\mathbb{R}} g^{\ast}(t) \left\{ \int_{\mathbb{R}} \int_{\mathbb{R}} \mathscr{W}_{\psi}\{f\}(a,b) \phi_{a,b}(t) \frac{\,da \,db}{a^2} \right\} \,dt \\
+                                &= \left\langle \frac{1}{C_{\psi, \phi}} \int_{\mathbb{R}} \int_{\mathbb{R}} \mathscr{W}_{\psi}\{f\}(a,b) \phi_{a,b}(t) \frac{\,da \,db}{a^2}, g(t) \right\rangle_2
+    \end{align}
+    Because $g$ was chosen freely, we obtain the identity we wanted by the dominated convergence theorem on $L_2(\mathbb{R})$.
+    \begin{equation*}
+        f(t) = \frac{1}{C_{\psi, \phi}} \int_{\mathbb{R}} \int_{\mathbb{R^{+}}} W_{\psi}\{f\}(a, b) \frac{1}{\sqrt{|a|}} \phi \left(\frac{t - b}{a}\right)  \frac{\,da \,db}{a^2}
+    \end{equation*}
+    This identity only holds in the weak sense on $L_2(\mathbb{R})$, so the functions are identical almost everywhere but not pointwise.
+\end{proof}
+The proof of \ref{eq:orth_real} works analogous, just the integral bounds over $da$ must be adjusted.
+
+
+\section{Hyperparameter Settings}
+
+\input{Tables/args_lorenz_runs.tex}
+
+\input{Tables/args_lemon_runs.tex}

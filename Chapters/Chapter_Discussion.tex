@@ -1,0 +1,74 @@
+\FloatBarrier
+\chapter{Discussion and Outlook} \lhead{\emph{Discussion and Outlook}}
+
+\section{Discussion}
+
+In this thesis, I investigated the use of the PLRNNs for training on fMRI time series. To this end I developed an observation model for BOLD signals found in fMRI and an inversion 
+algorithm to incorporate this BOLD observation model into training using teacher forcing and backpropagation through time (BPTT). The BOLD observation model convolutes
+the latent states across time with the hemodynamic response function (hrf) before projecting them into observation space via a linear transformation. 
+The inversion of the typically noisy observations to obtain teacher signals is achieved with a Wiener filter. 
+The additional necessary inputs of the Wiener filter, the noise and denoised signal estimations, are obtained via Wavelet based noise estimation and denoising.
+
+To benchmark this new method I created artificial benchmark datasets using the Lorenz63 system. The Lorenz system was convoluted with the hrf function and degraded with 
+varying levels of noise to simulate the setting of fMRI time series. Overall, the BOLD observation model performed much better across all metrics than the standard linear observation
+model on these benchmark datasets in both noiseless and noisy settings. The BOLD observation model has the additional benefit of giving the user access to the unconvoluted latent 
+space dynamics, which the linear observation model by design cannot. 
+
+I then tested this combination of PLRNN with a BOLD observation model on real fMRI time series from the publically available LEMON dataset.
+Only a selection of 51 participants was chosen from the LEMON dataset by filtering for low time dependence of the time series variance. Many participants showed 
+increasing variance with the time of recording, which skews the results as the time series are not stationary. On 10 of these selected participants I performed a parameter 
+grid search for the teacher forcing $\alpha$ and the latent space dimension $\ell$. The TF $\alpha$ has a small effect on the results, with very small (or zero) values 
+improving the state space distance $D_{stsp}$ while larger $\alpha$-values improve the power spectrum error $D_{PSE}$. The latent space dimension $\ell$ had almost no effect on the 
+results, only reducing the variance between runs when set equal to the observation dimension. The most likely explanation to me seems that the hidden dimension, which is another 
+parameter of the shallow PLRNN (the PLRNN variant used in this work), was set too high, 50, and thus able to retain so much expressivity that the latent dimension did not influence
+the results. 
+
+I then trained 20 models with the chosen hyperparameters on each participant and investigated the results. The main complication on fMRI time series seems to be correctly evaluating 
+the models because the time series are so short. This results in the state space distance to have a high variance, even in the same model, which I showed in 
+section \ref{sec:eval_metrics_param}. In the result section we also saw that the power spectrum error on the (shorter) test set is (on average) lower than on the 
+training set. This is most likely the result of over-smoothing the power spectrum, as I picked the smoothing kernel for a series length of 500, which is close to the training set 
+length of 489. For the shorter test set (length 163) tends to get over-smoothed, which in turn improves $D_{PSE}$. The problem is that picking a smaller smoothing $\sigma$ for 
+the test set makes it hard to compare the results on the different sets, as it is no longer obvious that they can be compared.
+
+When comparing the effects of good $D_{stsp}$ and $D_{PSE}$ by looking at different example trajectories I showed that a low $D_{PSE}$ is desirable because the resting-state fMRI
+time series mostly have one or two large peaks in their power spectrum representing dominant frequencies. Higher $D_{PSE}$-values mean that the models did not learn these dominant 
+frequencies. Unless $D_{stsp}$ is very high there it is not clear how a lower $D_{stsp}$ effects the trajectories. It may just fall into the variance of the measure for 
+short trajectories which I documented. A simple dimensionality reduction with principal component analysis (PCA) didn't give a good intuition on the high dimensional trajectories.
+
+Investigating the maximum Lyapunov exponent $\lambda_{max}$ delivered some interesting insights. Most model runs learned a positive $\lambda_{max}$, meaning they produce chaotic 
+dynamics. The models that did not learn a positive $\lambda_{max}$ showed clear performance issues when evolved in time such as converging to a fixed point. Otherwise, the distribution of 
+$\lambda_{max}$ values was very consistent across all participants. Investigating the correlations between runs delivered no meaningful results. The maximum Lyapunov exponent 
+also did not correlate with any personality measures, which makes sense considering the mean $\lambda_{max}$-values were very similar across all participants. Investigating
+the spectral norm values of the $W$ connectivity matrices did also not provide any further meaningful insights.
+
+\section{Outlook}
+
+\textbf{Introduce more realistic benchmarks: } In this work I used the Lorenz63 dataset and simply added the convolution with the hemodynamic response function and noise to the signal.
+There are simulation frameworks for whole-brain modelling such as neurolib, \cite{cakan2021}, which allow the user to generate artificial BOLD signals. It allows the user to choose 
+the neural mass model, the functional connectivity and the noise assumptions for the simulation and outputs both the (in practice hidden) neuronal activity and the corresponding
+BOLD output signal. Such a framework can be used to create higher quality benchmark data which is closer to the real fMRI use-case. In these benchmarks should consist of both long 
+simulations to act as proof of concept that the PLRNN with BOLD observation can learn these time series and short simulations to explore the issues of real world fMRI time series 
+typically being very short. 
+
+\textbf{Addressing the stationarity issue: } In many fMRI time series the variance increases with time, which violates the common stationarity assumption and makes it difficult to compare 
+train and test sets. The method of testing for stationarity in this work is rather crude. Both the window size of the simple moving variance (SMV) and the cutoff
+for the correlation between SMV and time were chosen arbitrarily upon visual inspection of the results. In further work on fMRI time series there should be a more formalized approach to 
+this issue such as more formal statistical tests for stationarity.
+
+\textbf{Analyze further dynamical features: } In this work I only included a few features into my analysis like the maximum Lyapunov exponent. 
+However, the PLRNN framework allows us to compute further features such as fixed points and cycles of the trained models. 
+These were not included in this thesis and might provide further insights into the quality of the reconstructions, much like a negative maximum Lyapunov 
+exponent seems to be a good criterion for discarding a model. As shown in \cite{mikhaeil2022difficulty} I is also possible to estimate $\lambda_{max}$ from the data itself, so comparing 
+the estimated $\lambda_{max}$ from data and the one calculated from the model is another possibility.
+
+\textbf{Improve visualization: } An important issue I encountered when working with fMRI data is simply the lack of a good visual representation of both the data and the generated 
+trajectories, which is why I opted to plot individual trajectories in the results section to illustrate a point. Instead of using simple dimensionality reduction like I attempted 
+in this work, \cite{gonzalez2023manifold} apply more modern dimensionality reduction methods, such as Uniform Manifold Approximation and Projection (UMAP), with very promising results.
+In my opinion, a good dimensionality reduction method would allow for greater insight into the geometry of the data and the reconstructions, which is currently lacking. The state space 
+measure $D_{stsp}$, which is meant to give a measure of the geometrical overlap between the generated trajectories and the data, is only of limited use in the fMRI context as the short 
+time series lengths results in either a large variance and very limited resolution of $D_{stsp}$. 
+
+\textbf{Explore multiple data modalities in LEMON: } The LEMON dataset doesn't just include fMRI data, but also multiple other physiological measurements which were 
+acquired simultaneously to the fMRI scans. In \cite{brenner2022multimodal} the PLRNN framework was expanded to be able to train on multimodal observations. 
+Training on these additional data modalities would be the next logical step in exploring LEMON. 
+

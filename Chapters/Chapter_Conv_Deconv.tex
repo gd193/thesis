@@ -1,0 +1,195 @@
+\section{Convolution and the Convolutional Theorem}\label{sec:conv}
+
+Having established the basic properties of the Fourier transform, I will now introduce the convolution operation and its important properties.
+
+\begin{definition}[Convolution]
+    Let $f, g \in L^1(\mathbb{R}^d)$ be integrable functions. The convolution of $f$ and $g$, written as $(f \ast g)$, is defined as
+    \begin{equation}
+        (f \ast g)(t) := \int_{\mathbb{R^d}} f(\tau) g(t - \tau) d^d \tau
+    \end{equation}
+    \label{eq:conv_def}
+\end{definition}
+The convolution operation is also defined for discrete functions.
+
+\begin{definition}[Discrete Convolution]
+    Let $f, g$ be complex-valued functions defined on $\mathbb{Z}$. The convolution of $f$ and $g$ is defined as
+    \begin{equation}
+        (f \ast g)[n] := \sum_{m=-\infty}^{\infty} f[m] g[n - m]
+        \label{eq:disc_conv}
+    \end{equation}
+    Note that in the case that $g$ is non-zero only on a finite interval $[\![-M, M]\!]$ the series in the above definition can be replaced with a finite summation 
+    \begin{equation}
+        (f \ast g)[n] = \sum_{m=-M}^{M} f[m] g[n - m].
+        \label{eq:disc_conv_finite}
+    \end{equation}
+\end{definition}
+
+The definition of the discrete convolution in Eq. \ref{eq:disc_conv_finite} can be rewritten as a matrix vector multiplication. Write the signal as a vector
+$x = [ x[1], \cdots, x[N] ]^{T}$. The convolution with the impulse response $h = [h[1], \cdots, h[M]]^T$ is given by the multiplication with the 
+$(M+N-1) \times N$ convolution matrix
+
+\begin{equation}
+    y = h \ast x = 
+    \begin{bmatrix}
+        h[1] & 0 & \cdots & 0 & 0 \\
+        h[2] & h[1] & \cdots & 0 & 0 \\
+        h[3] & h[2] & \cdots & 0 & 0 \\
+        \vdots & h[3] & \cdots & h[1] & 0 \\
+        h[m-1] & \vdots & \ddots & h[2] & h[1] \\
+        h[m] & h[m-1] &    & \vdots & h[2] \\
+        0 & h[m] & \ddots & h[m-2] & \vdots \\
+        0 & 0 & \cdots & h[m-1] & h[m-2] \\
+        \vdots & \vdots &    & h[m] & h[m-1] \\
+        0 & 0 & \cdots & 0 & h[m] 
+    \end{bmatrix}
+    \begin{bmatrix}
+        x[1] \\
+        x[2] \\
+        x[3] \\
+        \vdots \\
+        x[N]
+    \end{bmatrix}
+    \label{eq:conv_matrix}
+\end{equation}
+
+This depiction of convolution as matrix transformation is useful as an alternative mathematical perspective on the convolution operation, and it 
+was used in the implementation part of this work as calculating the loss gradient over matrix multiplication is already built into the Julia Flux
+framework.
+
+\begin{proposition}[Properties of the Convolution operation]
+    The following properties hold in both the continuous and the discrete case. For either 
+    $f, g, h \in L^1(\mathbb{R}^d)$ or $f, g, h$ complex-valued functions on $\mathbb{Z}$.  
+
+    \begin{enumerate}
+            \item Commutativity
+                \begin{align*}
+                    f \ast g = g \ast f
+                \end{align*}
+            \item Associativity
+                \begin{align*}
+                    f \ast (g \ast h) = (f \ast g) \ast h
+                \end{align*}
+            \item Distributivity
+                \begin{align*}
+                    f \ast (g + h) = (f \ast g) + (f \ast h)
+                \end{align*}
+            \item Associativity with scalar multiplication: For $a \in \mathbb{C}$
+                \begin{align*}
+                    a (f \ast g) = (a f) \ast g
+                \end{align*}
+            \item Identity: Convolution with the delta distribution $\delta$ is simply the identity operation
+                \begin{align*}
+                    f \ast \delta = f
+                \end{align*}
+    \end{enumerate}
+    \label{prop:conv_properties}
+\end{proposition}
+
+Convolution and the Fourier transform are connected by the following convolutional theorem, which states that the Fourier transform translates 
+the convolution operation in the time domain to a simple multiplication in the frequency domain.
+
+\begin{theorem}[Convolutional Theorem]
+    Let $f, g \in L^1(\mathbb{R^d})$ be integrable functions on $\mathbb{R^d}$ with Fourier transforms $F=\mathscr{F}\{f\}$ and $G=\mathscr{F}\{g\}$.
+    Define their convolution $h = f \ast h$ and its Fourier transform $H = \mathscr{F} \{ f \ast h \}$. The convolutional theorem states that
+
+    \begin{equation}
+        H(k) = F(k) \cdot G(k)
+    \end{equation}
+    where $\cdot$ denotes pointwise multiplication.
+
+    Applying the inverse FT $\mathscr{F}^{-1}$ immediately gives us the corollary
+    \begin{equation}
+        h(x) = \mathscr{F}^{-1} \{ F \cdot G \}(x).
+    \end{equation}
+
+    The convolutional theorem also holds in the discrete case where $f, g$ complex-valued signals and $\mathscr{F}$ denotes the DFT and $\mathscr{F}^{-1}$
+    the IDFT.
+    \label{th:conv_theorem}
+\end{theorem}
+
+The convolutional theorem allows us to efficiently compute convolutions. Note that both the definition in Eq. \ref{eq:disc_conv_finite} and the matrix
+multiplication in Eq. \ref{eq:conv_matrix} require $N^2$ operations for $N$ output values. Using the convolutional theorem and the FFT algorithm
+the computational complexity can be reduced to $\mathcal{O}(N \log N)$.
+
+If we recall the depiction of the DFT as a unitary transformation in section \ref{sec:unitary_dft} and the convolution matrix in Eq. \ref{eq:conv_matrix}, 
+it follows from the convolutional theorem that the DFT diagonalizes convolutional matrices. The Fourier basis is the eigenbasis of the convolution
+operation.
+
+\section{Deconvolution}
+
+Deconvolution is the inverse operation to convolution. Given the functions $g$ and $h$, the objective of deconvolution is to find $f$ given the 
+convolution equation 
+
+\begin{equation}
+    f \ast g = h.
+    \label{eq:conv_eq}
+\end{equation}
+
+In the simple case of \ref{eq:conv_eq} we can simply use the convolutional theorem \ref{th:conv_theorem} to solve the equation in Fourier space.
+
+\begin{align}
+    F(k) G(k) &= H(k) \\
+    F(k) &= \frac{H(k)}{G(k)} \\
+    f(x) &= \mathscr{F}^{-1}\left(\frac{H}{G}\right)(x) \label{eq:inverse_filtering}
+\end{align}
+
+In practice, we however do not have the ideal case shown in \ref{eq:conv_eq}. Usually, $h$ is a recorded signal of a physical system and $f$
+is the signal we wish to recover, but that has been convolved by a \textit{filter} or \textit{impulse response} $g$ when measuring the signal.
+In real measured systems we typically have a measurement error term that has to be added to \ref{eq:conv_eq}, resulting in 
+
+\begin{equation}
+    (f \ast g) + \epsilon = h
+    \label{eq:conv_real} 
+\end{equation}
+
+In this case $\epsilon$ is the noise term added to our recorded signal. Using the \textit{inverse filtering} approach in Eq. \ref{eq:inverse_filtering}
+is now no longer correct. In fact, the signal-noise-ratio is typically worsened and high frequency terms are erroneously amplified. The problems
+of deconvolution have long been known in the physics community, a discussion can be found in \cite{jones1970problem}.
+
+\subsection{Wiener Deconvolution} \label{sec:Wiener_deconv}
+
+To address the issues of the simple inverse filtering approach, the so-called Wiener Deconvolution was introduced in \cite{wiener1964extrapolation}. 
+This approach again is applied in the frequency domain and attempts to minimize the impact of deconvolved noise at frequencies which have a poor
+signal-to-noise ratio.
+
+Given a system as in Eq. \ref{eq:conv_real}, the Wiener deconvolution attempts to provide filter $k$ to estimate $f$ as follows
+
+\begin{equation}
+    \hat{f}(t) = (k \ast h)(t)
+\end{equation}
+
+where $\hat{f}(t)$ is an estimate of $f(t)$ that minimizes the mean squared error (MSE). The Wiener deconvolution filter is naturally written in 
+the Fourier domain as 
+
+\begin{equation}
+    K(k) = \frac{G^*(k) S(k)}{|G(k)|^2 S(k) + N(k)}
+    \label{eq:wiener_deconv}
+\end{equation}
+
+where 
+
+\begin{itemize}
+    \item $K(k)$ and $G(k)$ are the Fourier transforms of $k(t)$ and $g(t)$
+    \item $S(k) = \mathbb{E}[|F(k)|^2]$ is the mean power spectral density of the original signal $f(t)$
+    \item $N(k) = \mathbb{E}[|\mathcal{E}(k)|^2]$ is the mean power spectral density of the noise $\epsilon(t)$
+    \item the superscript $^*$ denotes complex conjugation.
+\end{itemize}
+
+The filtering operation can then be immediately carried out in the Fourier domain:
+
+\begin{equation}
+    \hat{F}(k) = K(k) H(k)
+    \label{eq:wiener_filter_fourier}
+\end{equation}
+
+Applying the inverse Fourier transform then gives us the estimate of the original signal
+
+\begin{equation}
+    \hat{f}(t) = \mathscr{F}^{-1}(\hat{F})(t)
+\end{equation}
+
+An important limitation of this approach is that estimates of the exact impulse response of the system
+and the mean power spectral density (PSD) of both the noise and the original, unknown signal are needed to perform the deconvolution. In the case of BOLD
+time series the impulse response is known, it is the hemodynamic response function. The PSDs of the underlying signal and the noise are however not known.
+In the next section on wavelets I will introduce the mathematical tools needed to obtain estimates of the original signal and the noise. 
+These will allow us to apply Wiener deconvolution to BOLD time series.

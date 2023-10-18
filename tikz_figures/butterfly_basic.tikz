@@ -1,0 +1,41 @@
+\begin{figure}
+
+\begin{tikzpicture}[y=-1cm]
+
+\node (A0) at (0, 0) [left]{$a$};
+\node (B0) at (0, 2) [left]{$b$};
+
+\node[circle,fill=black,minimum size=5pt,inner sep=0pt] (A1) at (3, 0) {};
+\node[circle,fill=black,minimum size=5pt,inner sep=0pt] (B1) at (3, 2) {};
+
+\draw[-latex,thick] (A0) -- (A1);
+\draw[-latex,thick] (B0) -- (B1);
+
+\node (B0) at (1.7, 2.3) [left]{$e^{\frac{2 \pi i}{N}k}$};
+
+
+\node[circle,fill=black,minimum size=5pt,inner sep=0pt] (A2) at (8, 0) {};
+\node[circle,fill=black,minimum size=5pt,inner sep=0pt] (B2) at (8, 2) {};
+
+\draw[-latex,thick] (A1) -- (A2);
+\draw[-latex,thick] (B1) -- (B2);
+
+\draw[-latex,thick,red] (A1) -- (B2);
+\draw[-latex,thick,red] (B1) -- (A2);
+
+\node[red] at (A2) [shift={(315:0.2)}] {\tiny$+$};
+\node[red] at (A2) [shift={(135:0.2)}] {\tiny$+$};
+\node[red] at (B2) [shift={(315:0.2)}] {\tiny$+$};
+\node[red] at (B2) [shift={(135:0.2)}] {\tiny$-$};
+
+\node (A3) at (11, 0) [right]{$\widehat{a}=a + e^{\frac{2 \pi i}{N}k} b$};
+\node (B3) at (11, 2) [right]{$\widehat{b}=a - e^{\frac{2 \pi i}{N}k} b$};
+
+\draw[-latex,thick] (A2) -- (A3);
+\draw[-latex,thick] (B2) -- (B3);
+
+\end{tikzpicture}
+
+\caption{Basic butterfly diagram in the decimation-in-time FFT algorithm}
+\label{fig:butterfly_basic}
+\end{figure}

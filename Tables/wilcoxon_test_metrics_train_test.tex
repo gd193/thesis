@@ -1,0 +1,17 @@
+\begin{table}
+\centering
+\caption{Wilcoxon signed-rank test applied to the distribution of metrics on training and test set. Model runs where excluded if the 1-step PE $>$ 1. $N_{converged}=1007$}
+\label{tab:wilcoxon_test_metrics_train_test}
+\begin{tabular}{lllll}
+\toprule
+ & Result & p-Value & Rank sum & Z-statistic \\
+Metric &  &  &  &  \\
+\midrule
+$D_{stsp}$ & Reject $H_0$. Distributions differ. & $<0.001$ & 2490 & -27.22 \\
+$D_{PSE}$ & Reject $H_0$. Distributions differ. & $<0.001$ & 20630 & -25.25 \\
+1-step PE & Reject $H_0$. Distributions differ. & $<0.001$ & 3578 & -27.10 \\
+5-step PE & Reject $H_0$. Distributions differ. & $<0.001$ & 164 & -27.47 \\
+10-step PE & Reject $H_0$. Distributions differ. & $<0.001$ & 99 & -27.48 \\
+\bottomrule
+\end{tabular}
+\end{table}

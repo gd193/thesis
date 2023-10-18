@@ -1,0 +1,93 @@
+\begin{figure}
+    \begin{tikzpicture}[scale=1.5]
+        % Draw axes
+        \draw [<->,thick] (0,2) node (yaxis) [above] {}
+            |- (3,0) node (xaxis) [right] {};
+
+        \node[below=0.2cm] at (1.5, 0) {time};
+        \node[rotate=90,above=0.2cm] at (0, 1) {frequency};
+        \draw (2.8,0) coordinate (e_1) -- (2.8,1.8) coordinate (e_2);
+        \draw (0,1.8) coordinate (e_3) -- (2.8,1.8) coordinate (e_2);
+
+        \foreach \x in {0,...,8}
+           {
+                \draw (0.35*\x, 0) coordinate (vs_\x) -- (0.35*\x, 1.8) coordinate (ve_\x);
+           }
+
+        \node[above,font=\large\bfseries] at (current bounding box.north) {Time Series};
+    \end{tikzpicture}%
+\qquad
+    \hspace{1cm}
+    \begin{tikzpicture}[scale=1.5]
+        % Draw axes
+        \draw [<->,thick] (0,2) node (yaxis) [above] {}
+            |- (3,0) node (xaxis) [right] {};
+
+        \node[below=0.2cm] at (1.5, 0) {time};
+        \node[rotate=90,above=0.2cm] at (0, 1) {frequency};
+        \draw (2.8,0) coordinate (e_1) -- (2.8,1.75) coordinate (e_2);
+
+        \foreach \y in {0,...,6}
+           {
+                \draw (0, 0.292*\y) coordinate (hs_\y) -- (2.8, 0.292*\y) coordinate (he_\y);
+           }
+            
+        \node[above,font=\large\bfseries] at (current bounding box.north) {Fourier Transform};
+    \end{tikzpicture}
+
+    \begin{tikzpicture}[scale=1.5]
+        % Draw axes
+        \draw [<->,thick] (0,2) node (yaxis) [above] {}
+            |- (3,0) node (xaxis) [right] {};
+
+        \node[below=0.2cm] at (1.5, 0) {time};
+        \node[rotate=90,above=0.2cm] at (0, 1) {frequency};
+        \draw (2.8,0) coordinate (e_1) -- (2.8,1.75) coordinate (e_2);
+
+        \foreach \y in {0,...,3}
+           {
+                \draw (0, 0.583*\y) coordinate (hs_\y) -- (2.8, 0.583*\y) coordinate (he_\y);
+           }
+
+           \foreach \x in {0,...,4}
+           {
+                \draw (0.7*\x, 0) coordinate (vs_\x) -- (0.7*\x, 1.75) coordinate (ve_\x);
+           }
+            
+        \node[above,font=\large\bfseries] at (current bounding box.north) {Short Time FT};
+    \end{tikzpicture}
+    \qquad
+    \hspace{1cm}
+    \begin{tikzpicture}[scale=1.5]
+        % Draw axes
+        \draw [<->,thick] (0,2) node (yaxis) [above] {}
+            |- (3,0) node (xaxis) [right] {};
+
+        \node[below=0.2cm] at (1.5, 0) {time};
+        \node[rotate=90,above=0.2cm] at (0, 1) {frequency};
+        \draw (2.8,0) coordinate (e_1) -- (2.8,1.75) coordinate (e_2);
+
+        %horizontal lines
+        \draw (0, 0.33*0.35) coordinate (hs_1) -- (2.8, 0.33*0.35) coordinate (he_1);
+        \draw (0, 0.35) coordinate (hs_2) -- (2.8, 0.35) coordinate (he_2);
+        \draw (0, 2.33*0.35) coordinate (hs_3) -- (2.8, 2.33*0.35) coordinate (he_3);
+        \draw (0, 5*0.35) coordinate (hs_4) -- (2.8, 5*0.35) coordinate (he_4);
+
+        %vertical lines
+        \draw (0.466*3, 0.33*0.35) coordinate (vs_1) -- (0.466*3, 1.75) coordinate (ve_1);
+
+        \draw (0.466*1.5, 0.35) coordinate (vs_21) -- (0.466*1.5, 1.75) coordinate (ve_21);
+        \draw (0.466*4.5, 0.35) coordinate (vs_22) -- (0.466*4.5, 1.75) coordinate (ve_22);
+
+        \draw (0.466*0.75, 2.33*0.35) coordinate (vs_31) -- (0.466*0.75, 1.75) coordinate (ve_31);
+        \draw (0.466*2.25, 2.33*0.35) coordinate (vs_32) -- (0.466*2.25, 1.75) coordinate (ve_32);
+        \draw (0.466*3.75, 2.33*0.35) coordinate (vs_33) -- (0.466*3.75, 1.75) coordinate (ve_33);
+        \draw (0.466*5.25, 2.33*0.35) coordinate (vs_34) -- (0.466*5.25, 1.75) coordinate (ve_34);
+
+        \node[above,font=\large\bfseries] at (current bounding box.north) {Wavelet Transform};
+    \end{tikzpicture}
+    \caption[Schematic overview of time/frequency resolution of different transformations]{A schematic overview of the time and 
+    frequency resolutions of the different transformations in comparison with the original time-series dataset. 
+    The size and orientation of the blocks indicate how small the features are that we can distinguish in the time and frequency domain.}
+    \label{fig:wavelet_trafo_sketch}
+\end{figure}

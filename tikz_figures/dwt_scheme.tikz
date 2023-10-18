@@ -1,0 +1,57 @@
+\begin{figure}
+
+\begin{tikzpicture}
+
+%Nodes
+\node (A) at (0,0) [align=center] {$S_{m, n}$};
+\node (B) at (2.5,0) [rectangle,draw] {high pass};
+\node (C) at (2.5,2) [rectangle,draw] {low pass};
+
+\draw (A) -| (1,2);
+\draw[-{Latex[length=3mm]}]  (A) to (B);
+\draw[-{Latex[length=3mm]}]  (1,2) to (C);
+
+\node (D) at (5,0) [circle, draw] {$\downarrow 2$};
+\node (A1) at (5,2) [circle, draw] {$\downarrow 2$};
+
+\draw[-{Latex[length=3mm]}]  (B) to (D);
+\draw[-{Latex[length=3mm]}]  (C) to (A1);
+
+\node (E) at (7.5,0) [align=center] {$T_{m+1,n}$ };
+\node (B1) at (7.5,2) [align=center]{$S_{m+1,n}$};
+
+\draw[-{Latex[length=3mm]}]  (A1) to (B1);
+\draw[-{Latex[length=3mm]}] (D) to (E);
+
+
+
+\node (C1) at (10,4)[rectangle,draw] {low pass};
+\node (C2) at (10,2)[rectangle, draw] {high pass};
+
+
+\draw (B1) -| (8.5,4);
+\draw[-{Latex[length=3mm]}]  (8.5,4) to (C1);
+\draw[-{Latex[length=3mm]}] (B1) to (C2);
+
+
+\node (D1) at (12.5,2) [circle, draw] {$\downarrow 2$};
+\node (A2) at (12.5,4) [circle, draw] {$\downarrow 2$};
+
+\draw[-{Latex[length=3mm]}] (C2) to (D1);
+\draw[-{Latex[length=3mm]}] (C1) to (A2);
+
+\node (F) at (15,4) {$S_{m+2,n}$};
+\node (E1) at (15,2) [align=center] {$T_{m+2,n}$};
+
+\draw[-{Latex[length=3mm]}] (A2) to (F);
+\draw[-{Latex[length=3mm]}]  (D1) to (E1);
+
+
+
+\end{tikzpicture}
+\caption[Schematic of DWT filtering]{\textbf{Schematic of DWT filtering.} 
+Diagram of the filtering of the approximation coefficients to produce the approximation and detail coefficients at successive scales.
+The subsample symbold $\downarrow 2$ means take every second value of the filter signal.}
+\label{fig:dwt_scheme}
+
+\end{figure}

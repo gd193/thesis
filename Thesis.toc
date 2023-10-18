@@ -1,0 +1,79 @@
+\contentsline {chapter}{List of Figures}{vi}{dummy.2}%
+\contentsline {chapter}{List of Tables}{viii}{dummy.4}%
+\contentsline {chapter}{\numberline {1}Dynamical Systems}{1}{chapter.6}%
+\contentsline {section}{\numberline {1.1}Introduction to Dynamical Systems}{1}{section.7}%
+\contentsline {subsection}{\numberline {1.1.1}Continuous Dynamical Systems}{2}{subsection.12}%
+\contentsline {subsection}{\numberline {1.1.2}Stability of Fixed points}{5}{subsection.34}%
+\contentsline {subsection}{\numberline {1.1.3}Difference Equations as Dynamical Systems}{6}{subsection.41}%
+\contentsline {section}{\numberline {1.2}Lyapunov Exponents}{8}{section.50}%
+\contentsline {chapter}{\numberline {2}Recurrent Neural Networks}{12}{chapter.65}%
+\contentsline {section}{\numberline {2.1}Introduction to Recurrent Neural Networks}{12}{section.66}%
+\contentsline {section}{\numberline {2.2}Unfolding the Computational Graph}{13}{section.68}%
+\contentsline {section}{\numberline {2.3}Backpropagation through time}{14}{section.77}%
+\contentsline {section}{\numberline {2.4}Exploding and vanishing gradients}{16}{section.81}%
+\contentsline {section}{\numberline {2.5}Dealing with the exploding and vanishing gradient}{18}{section.87}%
+\contentsline {subsection}{\numberline {2.5.1}$L_1$ and $L_2$ Regularization}{18}{subsection.88}%
+\contentsline {subsection}{\numberline {2.5.2}Alternative architectures}{18}{subsection.89}%
+\contentsline {subsection}{\numberline {2.5.3}Gradient Clipping}{18}{subsection.90}%
+\contentsline {subsection}{\numberline {2.5.4}Smart Initialization}{19}{subsection.92}%
+\contentsline {section}{\numberline {2.6}Teacher Forcing}{19}{section.93}%
+\contentsline {section}{\numberline {2.7}Piecewise Linear Recurrent Neural Network (PLRNN)}{21}{section.99}%
+\contentsline {section}{\numberline {2.8}PLRNN extensions}{22}{section.102}%
+\contentsline {section}{\numberline {2.9}Linear Observation model}{23}{section.106}%
+\contentsline {section}{\numberline {2.10}Identity Teacher Forcing}{23}{section.108}%
+\contentsline {section}{\numberline {2.11}Inversion Teacher Forcing}{24}{section.113}%
+\contentsline {section}{\numberline {2.12}BOLD observation model}{25}{section.116}%
+\contentsline {subsection}{\numberline {2.12.1}Physical principals of fMRI}{25}{subsection.117}%
+\contentsline {subsection}{\numberline {2.12.2}Modelling the Hemodynamic Response}{25}{subsection.118}%
+\contentsline {subsection}{\numberline {2.12.3}Defining the BOLD observation equation}{27}{subsection.122}%
+\contentsline {chapter}{\numberline {3}Fourier Transform}{28}{chapter.124}%
+\contentsline {section}{\numberline {3.1}Continuous Fourier Transform}{28}{section.125}%
+\contentsline {section}{\numberline {3.2}Discrete Fourier Transform}{29}{section.135}%
+\contentsline {subsection}{\numberline {3.2.1}Unitary DFT}{30}{subsection.140}%
+\contentsline {section}{\numberline {3.3}Fast Fourier Transform}{31}{section.145}%
+\contentsline {subsection}{\numberline {3.3.1}Cooley–Tukey FFT algorithm}{31}{subsection.146}%
+\contentsline {section}{\numberline {3.4}Convolution and the Convolutional Theorem}{34}{section.156}%
+\contentsline {section}{\numberline {3.5}Deconvolution}{37}{section.172}%
+\contentsline {subsection}{\numberline {3.5.1}Wiener Deconvolution}{37}{subsection.178}%
+\contentsline {chapter}{\numberline {4}Wavelet Transformation}{39}{chapter.183}%
+\contentsline {section}{\numberline {4.1}Continuous Wavelet Transformation}{39}{section.184}%
+\contentsline {section}{\numberline {4.2}Discrete Wavelet Transformation}{44}{section.223}%
+\contentsline {subsection}{\numberline {4.2.1}Frames and orthogonal wavelet basis}{45}{subsection.224}%
+\contentsline {subsection}{\numberline {4.2.2}The scaling function}{46}{subsection.233}%
+\contentsline {subsection}{\numberline {4.2.3}The scaling equation}{48}{subsection.242}%
+\contentsline {subsection}{\numberline {4.2.4}The fast wavelet transform}{49}{subsection.251}%
+\contentsline {subsection}{\numberline {4.2.5}Noise estimation and Denoising}{51}{subsection.258}%
+\contentsline {chapter}{\numberline {5}Datasets, Training and Evaluation}{53}{chapter.271}%
+\contentsline {section}{\numberline {5.1}BOLD inversion teacher forcing}{53}{section.272}%
+\contentsline {subsection}{\numberline {5.1.1}Boundary issues and minimum noise level}{55}{subsection.283}%
+\contentsline {section}{\numberline {5.2}Evaluation metrics}{57}{section.293}%
+\contentsline {subsection}{\numberline {5.2.1}State Space Distance $D_{stsp}$}{58}{subsection.294}%
+\contentsline {subsection}{\numberline {5.2.2}Power Spectrum Error $D_{PSE}$}{59}{subsection.299}%
+\contentsline {section}{\numberline {5.3}Datasets}{60}{section.304}%
+\contentsline {subsection}{\numberline {5.3.1}Lorenz63 System}{60}{subsection.305}%
+\contentsline {subsection}{\numberline {5.3.2}LEMON Dataset}{61}{subsection.310}%
+\contentsline {section}{\numberline {5.4}Experimental Setup: Benchmarking on Lorenz63 data}{62}{section.312}%
+\contentsline {subsection}{\numberline {5.4.1}Benchmarking on data without noise}{62}{subsection.313}%
+\contentsline {subsection}{\numberline {5.4.2}Benchmarking on data with noise}{63}{subsection.320}%
+\contentsline {section}{\numberline {5.5}Experimental Setup: Filtering LEMON datasets}{65}{section.327}%
+\contentsline {section}{\numberline {5.6}Evaluation Setup: Choosing hyperparameters for $D_{stsp}$ and $D_{PSE}$}{67}{section.335}%
+\contentsline {section}{\numberline {5.7}Grid search on LEMON dataset}{68}{section.338}%
+\contentsline {chapter}{\numberline {6}Results}{70}{chapter.339}%
+\contentsline {section}{\numberline {6.1}Results on the benchmark systems}{70}{section.340}%
+\contentsline {subsection}{\numberline {6.1.1}Noiseless data}{70}{subsection.341}%
+\contentsline {subsection}{\numberline {6.1.2}Noisy data}{72}{subsection.346}%
+\contentsline {section}{\numberline {6.2}Grid search on LEMON dataset}{74}{section.349}%
+\contentsline {section}{\numberline {6.3}Analysis of the results on the LEMON dataset}{77}{section.354}%
+\contentsline {subsection}{\numberline {6.3.1}Further investigation of dynamical features}{82}{subsection.361}%
+\contentsline {section}{\numberline {6.4}Investigating Correlations}{84}{section.367}%
+\contentsline {chapter}{\numberline {7}Discussion and Outlook}{88}{chapter.374}%
+\contentsline {section}{\numberline {7.1}Discussion}{88}{section.375}%
+\contentsline {section}{\numberline {7.2}Outlook}{90}{section.376}%
+\vspace {2em}
+\contentsline {chapter}{\numberline {A}Appendix}{92}{appendix.377}%
+\contentsline {section}{\numberline {A.1}Proofs of Wavelet theorems}{92}{section.378}%
+\contentsline {subsection}{\numberline {A.1.1}Proof for orthogonality relation for the wavelet transform, theorem \ref {th:cwt_orth_rela}}{92}{subsection.379}%
+\contentsline {subsection}{\numberline {A.1.2}Proof of Inverse continuous wavelet transform, definition \ref {def:icwt}}{93}{subsection.387}%
+\contentsline {section}{\numberline {A.2}Hyperparameter Settings}{93}{section.392}%
+\vspace {2em}
+\contentsline {chapter}{Bibliography}{96}{dummy.395}%

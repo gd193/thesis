@@ -1,0 +1,20 @@
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QIn general, for nonlinear DEs, analyzing the stability of a fixed point can be diffcult.\\E$"}
+{"rule":"COMMA_COMPOUND_SENTENCE_2","sentence":"^\\QThese ideas are formalized and the limits guaranteed by the following theorem\\E$"}
+{"rule":"COMMA_COMPOUND_SENTENCE_2","sentence":"^\\QIn fact, the signal-noise-ratio is typically worsened and high frequency terms are erroneously amplified.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QThe PSDs of the underlying signal and the noise are however not known.\\E$"}
+{"rule":"ADVERB_OR_HYPHENATED_ADJECTIVE","sentence":"^\\QThe loss function commonly used in this context is the mean squared error (MSE), which calculates the average squared difference between the desired outputs \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q and the model outputs \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, with the possibility of incorporating an additional regularizing term.\\E$"}
+{"rule":"COMMA_COMPOUND_SENTENCE","sentence":"^\\QNow that I have introduced the PLRNN and it's implementation with the linear observation model, it's time to adapt this existing framework to model fMRI time series and define a new observation model.\\E$"}
+{"rule":"SUBJECT_VERB_AGREEMENT","sentence":"^\\QThe fast wavelet transform.\\E$"}
+{"rule":"ARTICLE_ADJECTIVE_OF","sentence":"^\\QCalculate the MAD of the fine scale coefficients \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, the estimate of the noise level \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q and the universal estimator \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
+{"rule":"SENTENCE_WHITESPACE","sentence":"^\\QLg.\\E$"}
+{"rule":"AFFORD_VBG","sentence":"^\\QSpecifically, I chose scaling factor values \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q within the interval \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, using a step size of \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
+{"rule":"COMMA_COMPOUND_SENTENCE_2","sentence":"^\\QIn the case where the phase space is compact and the vector field is continuously differentiable, there is a stronger theorem guarantees that solutions are defined for all times.\\E$"}
+{"rule":"A_INFINITIVE","sentence":"^\\QLet \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q be the iterate of order \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q.\\E$"}
+{"rule":"ENGLISH_WORD_REPEAT_BEGINNING_RULE","sentence":"^\\QIf \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q the fixed point is superstable.\\E$"}
+{"rule":"THIS_NNS_VB","sentence":"^\\QThis guarantees bounded orbits provided the eigenvalues of \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q are smaller than 1.\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\QOnly for a few patients, such as Nr. 282, are there several runs with an entirely negative Lyapunov spectrum.\\E$"}
+{"rule":"MANY_NN_U","sentence":"^\\QAddressing the stationarity issue: In many fMRI time series the variance increases with time, which violates the common stationarity assumption and makes it difficult to compare train and test sets.\\E$"}
+{"rule":"POSSESSIVE_APOSTROPHE","sentence":"^\\QImprove visualization: An important issue I encountered when working with fMRI data is simply the lack of a good visual representation of both the data and the generated trajectories, which is why I opted to plot individual trajectories in the results section to illustrate a point.\\E$"}
+{"rule":"COMMA_COMPOUND_SENTENCE","sentence":"^\\QI followed \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q, \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q and \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q for the definitions and theorems presented in this chapter but I did have to adapt them in part to be consistent.\\E$"}
+{"rule":"COMMA_COMPOUND_SENTENCE_2","sentence":"^\\QIn the case where the phase space is compact and the vector field is continuously differentiable, there is a stronger theorem that guarantees solutions are defined for all times.\\E$"}
+{"rule":"POSSESSIVE_APOSTROPHE","sentence":"^\\QBOLD observation model for the dynamical systems reconstruction of fMRI time series\\E$"}

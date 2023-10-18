@@ -1,0 +1,18 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {6.1}{\ignorespaces Quantitative comparison between linear and convolutional observation model\relax }}{72}{table.caption.344}%
+\contentsline {table}{\numberline {6.2}{\ignorespaces Quantitative comparison between linear and convolutional observation model on noisy data\relax }}{73}{table.caption.348}%
+\contentsline {table}{\numberline {6.3}{\ignorespaces Results of the parameter search for $\ell $ values. Model runs where excluded if the 1-step PE $>$ 1\relax }}{74}{table.caption.350}%
+\contentsline {table}{\numberline {6.4}{\ignorespaces Results of the parameter search for $\alpha $ values. Model runs where excluded if the 1-step PE $>$ 1\relax }}{77}{table.caption.352}%
+\contentsline {table}{\numberline {6.5}{\ignorespaces Quantitative Results of the PLRNN with BOLD observation model on the LEMON dataset. Model runs where excluded if the 1-step PE $>$ 1. $N_{converged}=1007$\relax }}{77}{table.caption.355}%
+\contentsline {table}{\numberline {6.6}{\ignorespaces Wilcoxon signed-rank test applied to the distribution of metrics on training and test set. Model runs where excluded if the 1-step PE $>$ 1. $N_{converged}=1007$\relax }}{78}{table.caption.357}%
+\contentsline {table}{\numberline {6.7}{\ignorespaces Correlation between personality measures and mean maximum Lyapunov exponents. Mean $\lambda _{max}$ is calculated from all converged models. The results are statistically significant at a p-value$<0.05$. No correction for multiple testing was performed.\relax }}{87}{table.caption.372}%
+\contentsline {table}{\numberline {6.8}{\ignorespaces Correlation between personality measures and mean maximum Lyapunov exponents. Mean $\lambda _{max}$ is only calculated from filtered models. The results are statistically significant at a p-value$<0.05$. No correction for multiple testing was performed.\relax }}{87}{table.caption.373}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {A.1}{\ignorespaces Hyperparameter settings for Lorenz benchmark runs.\relax }}{94}{table.caption.393}%
+\contentsline {table}{\numberline {A.2}{\ignorespaces Hyperparameter settings for training on the LEMON dataset.\relax }}{95}{table.caption.394}%

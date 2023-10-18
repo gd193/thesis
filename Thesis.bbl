@@ -1,0 +1,364 @@
+\begin{thebibliography}{52}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Dil{\~a}o(2023)]{dilao2023dynamical}
+Rui Dil{\~a}o.
+\newblock \emph{Dynamical System and Chaos: An Introduction with Applications}.
+\newblock Springer Nature, 2023.
+
+\bibitem[Strogatz(2018)]{strogatz2018nonlinear}
+Steven~H Strogatz.
+\newblock \emph{Nonlinear dynamics and chaos with student solutions manual:
+  With applications to physics, biology, chemistry, and engineering}.
+\newblock CRC press, 2018.
+
+\bibitem[Benettin et~al.(1980)Benettin, Galgani, Giorgilli, and
+  Strelcyn]{benettin1980lyapunov}
+Giancarlo Benettin, Luigi Galgani, Antonio Giorgilli, and Jean-Marie Strelcyn.
+\newblock Lyapunov characteristic exponents for smooth dynamical systems and
+  for hamiltonian systems; a method for computing all of them. part 1: Theory.
+\newblock \emph{Meccanica}, 15:\penalty0 9--20, 1980.
+
+\bibitem[Vogt et~al.(2022)Vogt, Puelma~Touzel, Shlizerman, and
+  Lajoie]{vogt2022lyapunov}
+Ryan Vogt, Maximilian Puelma~Touzel, Eli Shlizerman, and Guillaume Lajoie.
+\newblock On lyapunov exponents for rnns: Understanding information propagation
+  using dynamical systems tools.
+\newblock \emph{Frontiers in Applied Mathematics and Statistics}, 8:\penalty0
+  818799, 2022.
+
+\bibitem[Chung and Siegelmann(2021)]{chung2021turing}
+Stephen Chung and Hava Siegelmann.
+\newblock Turing completeness of bounded-precision recurrent neural networks.
+\newblock \emph{Advances in Neural Information Processing Systems},
+  34:\penalty0 28431--28441, 2021.
+
+\bibitem[Sch{\"a}fer and Zimmermann(2006)]{schafer2006recurrent}
+Anton~Maximilian Sch{\"a}fer and Hans~Georg Zimmermann.
+\newblock Recurrent neural networks are universal approximators.
+\newblock In \emph{Artificial Neural Networks--ICANN 2006: 16th International
+  Conference, Athens, Greece, September 10-14, 2006. Proceedings, Part I 16},
+  pages 632--640. Springer, 2006.
+
+\bibitem[Blum and Rivest(1988)]{blum1988training}
+Avrim Blum and Ronald Rivest.
+\newblock Training a 3-node neural network is np-complete.
+\newblock \emph{Advances in neural information processing systems}, 1, 1988.
+
+\bibitem[Bengio et~al.(1993)Bengio, Frasconi, and Simard]{bengio1993problem}
+Yoshua Bengio, Paolo Frasconi, and Patrice Simard.
+\newblock The problem of learning long-term dependencies in recurrent networks.
+\newblock In \emph{IEEE international conference on neural networks}, pages
+  1183--1188. IEEE, 1993.
+
+\bibitem[Bengio et~al.(1994)Bengio, Simard, and Frasconi]{bengio1994learning}
+Yoshua Bengio, Patrice Simard, and Paolo Frasconi.
+\newblock Learning long-term dependencies with gradient descent is difficult.
+\newblock \emph{IEEE transactions on neural networks}, 5\penalty0 (2):\penalty0
+  157--166, 1994.
+
+\bibitem[Pascanu et~al.(2013)Pascanu, Mikolov, and
+  Bengio]{pascanu2013difficulty}
+Razvan Pascanu, Tomas Mikolov, and Yoshua Bengio.
+\newblock On the difficulty of training recurrent neural networks.
+\newblock In \emph{International conference on machine learning}, pages
+  1310--1318. Pmlr, 2013.
+
+\bibitem[Hochreiter and Schmidhuber(1997)]{hochreiter1997long}
+Sepp Hochreiter and J{\"u}rgen Schmidhuber.
+\newblock Long short-term memory.
+\newblock \emph{Neural computation}, 9\penalty0 (8):\penalty0 1735--1780, 1997.
+
+\bibitem[Le et~al.(2015)Le, Jaitly, and Hinton]{le2015simple}
+Quoc~V Le, Navdeep Jaitly, and Geoffrey~E Hinton.
+\newblock A simple way to initialize recurrent networks of rectified linear
+  units.
+\newblock \emph{arXiv preprint arXiv:1504.00941}, 2015.
+
+\bibitem[Talathi and Vartak(2015)]{talathi2015improving}
+Sachin~S Talathi and Aniket Vartak.
+\newblock Improving performance of recurrent neural network with relu
+  nonlinearity.
+\newblock \emph{arXiv preprint arXiv:1511.03771}, 2015.
+
+\bibitem[Williams and Zipser(1989)]{williams1989learning}
+Ronald~J Williams and David Zipser.
+\newblock A learning algorithm for continually running fully recurrent neural
+  networks.
+\newblock \emph{Neural computation}, 1\penalty0 (2):\penalty0 270--280, 1989.
+
+\bibitem[Jordan(1986)]{jordan1986attractor}
+Michael Jordan.
+\newblock Attractor dynamics and parallelism in a connectionist sequential
+  machine.
+\newblock In \emph{Eighth Annual Conference of the Cognitive Science Society,
+  1986}, pages 513--546, 1986.
+
+\bibitem[Pineda(1988)]{pineda1988dynamics}
+Fernando~J Pineda.
+\newblock Dynamics and architecture for neural computation.
+\newblock \emph{Journal of Complexity}, 4\penalty0 (3):\penalty0 216--245,
+  1988.
+
+\bibitem[Mikhaeil et~al.(2022{\natexlab{a}})Mikhaeil, Monfared, and
+  Durstewitz]{NEURIPS2022_495e55f3}
+Jonas Mikhaeil, Zahra Monfared, and Daniel Durstewitz.
+\newblock On the difficulty of learning chaotic dynamics with rnns.
+\newblock In S.~Koyejo, S.~Mohamed, A.~Agarwal, D.~Belgrave, K.~Cho, and A.~Oh,
+  editors, \emph{Advances in Neural Information Processing Systems}, volume~35,
+  pages 11297--11312. Curran Associates, Inc., 2022{\natexlab{a}}.
+\newblock URL
+  \url{https://proceedings.neurips.cc/paper_files/paper/2022/file/495e55f361708bedbab5d81f92048dcd-Paper-Conference.pdf}.
+
+\bibitem[Doya et~al.(1992)]{doya1992bifurcations}
+Kenji Doya et~al.
+\newblock Bifurcations in the learning of recurrent neural networks 3.
+\newblock \emph{learning (RTRL)}, 3:\penalty0 17, 1992.
+
+\bibitem[Durstewitz(2017)]{durstewitz2017state}
+Daniel Durstewitz.
+\newblock A state space approach for piecewise-linear recurrent neural networks
+  for identifying computational dynamics from neural measurements.
+\newblock \emph{PLoS computational biology}, 13\penalty0 (6):\penalty0
+  e1005542, 2017.
+
+\bibitem[Koppe et~al.(2019)Koppe, Toutounji, Kirsch, Lis, and
+  Durstewitz]{koppe2019identifying}
+Georgia Koppe, Hazem Toutounji, Peter Kirsch, Stefanie Lis, and Daniel
+  Durstewitz.
+\newblock Identifying nonlinear dynamical systems via generative recurrent
+  neural networks with applications to fmri.
+\newblock \emph{PLoS computational biology}, 15\penalty0 (8):\penalty0
+  e1007263, 2019.
+
+\bibitem[Schmidt et~al.(2019)Schmidt, Koppe, Monfared, Beutelspacher, and
+  Durstewitz]{schmidt2019identifying}
+Dominik Schmidt, Georgia Koppe, Zahra Monfared, Max Beutelspacher, and Daniel
+  Durstewitz.
+\newblock Identifying nonlinear dynamical systems with multiple time scales and
+  long-range dependencies.
+\newblock \emph{arXiv preprint arXiv:1910.03471}, 2019.
+
+\bibitem[Brenner et~al.(2022{\natexlab{a}})Brenner, Hess, Mikhaeil, Bereska,
+  Monfared, Kuo, and Durstewitz]{brenner2022tractable}
+Manuel Brenner, Florian Hess, Jonas~M Mikhaeil, Leonard~F Bereska, Zahra
+  Monfared, Po-Chen Kuo, and Daniel Durstewitz.
+\newblock Tractable dendritic rnns for reconstructing nonlinear dynamical
+  systems.
+\newblock In \emph{International Conference on Machine Learning}, pages
+  2292--2320. PMLR, 2022{\natexlab{a}}.
+
+\bibitem[Mikhaeil et~al.(2022{\natexlab{b}})Mikhaeil, Monfared, and
+  Durstewitz]{mikhaeil2022difficulty}
+Jonas Mikhaeil, Zahra Monfared, and Daniel Durstewitz.
+\newblock On the difficulty of learning chaotic dynamics with rnns.
+\newblock \emph{Advances in Neural Information Processing Systems},
+  35:\penalty0 11297--11312, 2022{\natexlab{b}}.
+
+\bibitem[Hess et~al.(2023)Hess, Monfared, Brenner, and
+  Durstewitz]{hess2023generalized}
+Florian Hess, Zahra Monfared, Manuel Brenner, and Daniel Durstewitz.
+\newblock Generalized teacher forcing for learning chaotic dynamics.
+\newblock \emph{arXiv preprint arXiv:2306.04406}, 2023.
+
+\bibitem[Fox(2012)]{fox2012coupling}
+Peter~T Fox.
+\newblock The coupling controversy.
+\newblock \emph{Neuroimage}, 62\penalty0 (2):\penalty0 594--601, 2012.
+
+\bibitem[Penny et~al.(2011)Penny, Friston, Ashburner, Kiebel, and
+  Nichols]{penny2011statistical}
+William~D Penny, Karl~J Friston, John~T Ashburner, Stefan~J Kiebel, and
+  Thomas~E Nichols.
+\newblock \emph{Statistical parametric mapping: the analysis of functional
+  brain images}.
+\newblock Elsevier, 2011.
+
+\bibitem[Serov et~al.(2017)]{serov2017fourier}
+Valery Serov et~al.
+\newblock \emph{Fourier series, Fourier transform and their applications to
+  mathematical physics}, volume 197.
+\newblock Springer, 2017.
+
+\bibitem[Smith et~al.(1997)]{smith1997scientist}
+Steven~W Smith et~al.
+\newblock The scientist and engineer's guide to digital signal processing,
+  1997.
+
+\bibitem[Puthusserypady(2021)]{puthusserypady2021applied}
+S.~Puthusserypady.
+\newblock \emph{Applied Signal Processing}.
+\newblock NowOpen Series. Now Publishers, 2021.
+\newblock ISBN 9781680839784.
+\newblock URL \url{https://books.google.de/books?id=fwwfzgEACAAJ}.
+
+\bibitem[Frigo and Johnson(2005)]{FFTW.jl-2005}
+Matteo Frigo and Steven~G. Johnson.
+\newblock The design and implementation of {FFTW3}.
+\newblock \emph{Proceedings of the IEEE}, 93\penalty0 (2):\penalty0 216--231,
+  2005.
+\newblock \doi{10.1109/JPROC.2004.840301}.
+\newblock Special issue on ``Program Generation, Optimization, and Platform
+  Adaptation''.
+
+\bibitem[Jones and Misell(1970)]{jones1970problem}
+AF~Jones and DL~Misell.
+\newblock The problem of error in deconvolution.
+\newblock \emph{Journal of Physics A: General Physics}, 3\penalty0
+  (5):\penalty0 462, 1970.
+
+\bibitem[Wiener(1964)]{wiener1964extrapolation}
+N.~Wiener.
+\newblock \emph{Extrapolation, Interpolation, and Smoothing of Stationary Time
+  Series: With Engineering Applications}.
+\newblock Massachusetts Institute of Technology : Paperback series. M.I.T.
+  Press, 1964.
+\newblock ISBN 9780262730051.
+
+\bibitem[schafer2006recurrent(2012)]{sauer-notes}
+Thomas schafer2006recurrent.
+\newblock Wavelets vorlesung, 2012.
+\newblock
+  \url{https://www.fim.uni-passau.de/fileadmin/dokumente/fakultaeten/fim/lehrstuhl/sauer/geyer/Wavelets.pdf},
+  Last visited on 2023/09/15".
+
+\bibitem[Mallat(2008)]{mallat2008wavelet}
+St{\'e}phane Mallat.
+\newblock \emph{A Wavelet Tour of Signal Processing}.
+\newblock Academic Press, 2008.
+\newblock ISBN 9780080922027.
+
+\bibitem[Shah and Tantary(2022)]{shah2022wavelet}
+Firdous~A Shah and Azhar~Y Tantary.
+\newblock \emph{Wavelet Transforms: Kith and Kin}.
+\newblock CRC Press, 2022.
+
+\bibitem[Daubechies(1992)]{daubechies1992ten}
+Ingrid Daubechies.
+\newblock \emph{Ten lectures on wavelets}.
+\newblock SIAM, 1992.
+
+\bibitem[Strang and Nguyen(1996)]{strang1996wavelets}
+Gilbert Strang and Truong Nguyen.
+\newblock \emph{Wavelets and filter banks}.
+\newblock SIAM, 1996.
+
+\bibitem[Donoho and Johnstone(1994)]{donoho1994ideal}
+David~L Donoho and Iain~M Johnstone.
+\newblock Ideal spatial adaptation by wavelet shrinkage.
+\newblock \emph{biometrika}, 81\penalty0 (3):\penalty0 425--455, 1994.
+
+\bibitem[Donoho(1995)]{donoho1995noising}
+David~L Donoho.
+\newblock De-noising by soft-thresholding.
+\newblock \emph{IEEE transactions on information theory}, 41\penalty0
+  (3):\penalty0 613--627, 1995.
+
+\bibitem[Hershey and Olsen(2007)]{hershey2007approximating}
+John~R Hershey and Peder~A Olsen.
+\newblock Approximating the kullback leibler divergence between gaussian
+  mixture models.
+\newblock In \emph{2007 IEEE International Conference on Acoustics, Speech and
+  Signal Processing-ICASSP'07}, volume~4, pages IV--317. IEEE, 2007.
+
+\bibitem[Babayan et~al.(2019)Babayan, Erbey, Kumral, Reinelt, Reiter,
+  R{\"o}bbig, Schaare, Uhlig, Anwander, Bazin, et~al.]{babayan2019mind}
+Anahit Babayan, Miray Erbey, Deniz Kumral, Janis~D Reinelt, Andrea~MF Reiter,
+  Josefin R{\"o}bbig, H~Lina Schaare, Marie Uhlig, Alfred Anwander,
+  Pierre-Louis Bazin, et~al.
+\newblock A mind-brain-body dataset of mri, eeg, cognition, emotion, and
+  peripheral physiology in young and old adults.
+\newblock \emph{Scientific data}, 6\penalty0 (1):\penalty0 1--21, 2019.
+
+\bibitem[Lorenz(1963)]{lorenz1963deterministic}
+Edward~N Lorenz.
+\newblock Deterministic nonperiodic flow.
+\newblock \emph{Journal of atmospheric sciences}, 20\penalty0 (2):\penalty0
+  130--141, 1963.
+
+\bibitem[McDonald(2014)]{mcdonald2014handbook}
+John~H McDonald.
+\newblock \emph{Handbook of biolological statistics}.
+\newblock New York•, 2014.
+
+\bibitem[Virtanen et~al.(2020)Virtanen, Gommers, Oliphant, Haberland, Reddy,
+  Cournapeau, Burovski, Peterson, Weckesser, Bright, {van der Walt}, Brett,
+  Wilson, Millman, Mayorov, Nelson, Jones, Kern, Larson, Carey, Polat, Feng,
+  Moore, {VanderPlas}, Laxalde, Perktold, Cimrman, Henriksen, Quintero, Harris,
+  Archibald, Ribeiro, Pedregosa, {van Mulbregt}, and {SciPy 1.0
+  Contributors}]{2020SciPy-NMeth}
+Pauli Virtanen, Ralf Gommers, Travis~E. Oliphant, Matt Haberland, Tyler Reddy,
+  David Cournapeau, Evgeni Burovski, Pearu Peterson, Warren Weckesser, Jonathan
+  Bright, St{\'e}fan~J. {van der Walt}, Matthew Brett, Joshua Wilson, K.~Jarrod
+  Millman, Nikolay Mayorov, Andrew R.~J. Nelson, Eric Jones, Robert Kern, Eric
+  Larson, C~J Carey, {\.I}lhan Polat, Yu~Feng, Eric~W. Moore, Jake
+  {VanderPlas}, Denis Laxalde, Josef Perktold, Robert Cimrman, Ian Henriksen,
+  E.~A. Quintero, Charles~R. Harris, Anne~M. Archibald, Ant{\^o}nio~H. Ribeiro,
+  Fabian Pedregosa, Paul {van Mulbregt}, and {SciPy 1.0 Contributors}.
+\newblock {{SciPy} 1.0: Fundamental Algorithms for Scientific Computing in
+  Python}.
+\newblock \emph{Nature Methods}, 17:\penalty0 261--272, 2020.
+\newblock \doi{10.1038/s41592-019-0686-2}.
+
+\bibitem[Ikeda et~al.(2017)Ikeda, Takeuchi, Taki, Nouchi, Yokoyama, Kotozaki,
+  Nakagawa, Sekiguchi, Iizuka, Yamamoto, et~al.]{ikeda2017comprehensive}
+Shigeyuki Ikeda, Hikaru Takeuchi, Yasuyuki Taki, Rui Nouchi, Ryoichi Yokoyama,
+  Yuka Kotozaki, Seishu Nakagawa, Atsushi Sekiguchi, Kunio Iizuka, Yuki
+  Yamamoto, et~al.
+\newblock A comprehensive analysis of the correlations between resting-state
+  oscillations in multiple-frequency bands and big five traits.
+\newblock \emph{Frontiers in Human Neuroscience}, 11:\penalty0 321, 2017.
+
+\bibitem[Dubois et~al.(2018)Dubois, Galdi, Han, Paul, and
+  Adolphs]{dubois2018resting}
+Julien Dubois, Paola Galdi, Yanting Han, Lynn~K Paul, and Ralph Adolphs.
+\newblock Resting-state functional brain connectivity best predicts the
+  personality dimension of openness to experience.
+\newblock \emph{Personality neuroscience}, 1:\penalty0 e6, 2018.
+
+\bibitem[Spielberger(1970)]{spielberger1970manual}
+Charles~Donald Spielberger.
+\newblock Manual for the state-trait anxiety inventory (self-evaluation
+  questionnaire).
+\newblock \emph{(No Title)}, 1970.
+
+\bibitem[Hamilton(1960)]{hamilton1960rating}
+Max Hamilton.
+\newblock A rating scale for depression.
+\newblock \emph{Journal of neurology, neurosurgery, and psychiatry},
+  23\penalty0 (1):\penalty0 56, 1960.
+
+\bibitem[Costa and McCrae(1989)]{costa1989neo}
+Paul~T Costa and Robert~R McCrae.
+\newblock \emph{NEO PI/FFI manual supplement for use with the NEO Personality
+  Inventory and the NEO Five-Factor Inventory}.
+\newblock Psychological Assessment Resources, 1989.
+
+\bibitem[Cakan et~al.(2021)Cakan, Jajcay, and Obermayer]{cakan2021}
+Caglar Cakan, Nikola Jajcay, and Klaus Obermayer.
+\newblock neurolib: A simulation framework for whole-brain neural mass
+  modeling.
+\newblock \emph{Cognitive Computation}, Oct 2021.
+\newblock ISSN 1866-9964.
+\newblock \doi{10.1007/s12559-021-09931-9}.
+\newblock URL \url{https://doi.org/10.1007/s12559-021-09931-9}.
+
+\bibitem[Gonzalez-Castillo et~al.(2023)Gonzalez-Castillo, Fernandez, Lam,
+  Handwerker, Pereira, and Bandettini]{gonzalez2023manifold}
+Javier Gonzalez-Castillo, Isabel~S Fernandez, Ka~Chun Lam, Daniel~A Handwerker,
+  Francisco Pereira, and Peter~A Bandettini.
+\newblock Manifold learning for fmri time-varying functional connectivity.
+\newblock \emph{Frontiers in Human Neuroscience}, 17, 2023.
+
+\bibitem[Brenner et~al.(2022{\natexlab{b}})Brenner, Koppe, and
+  Durstewitz]{brenner2022multimodal}
+Manuel Brenner, Georgia Koppe, and Daniel Durstewitz.
+\newblock Multimodal teacher forcing for reconstructing nonlinear dynamical
+  systems.
+\newblock \emph{arXiv preprint arXiv:2212.07892}, 2022{\natexlab{b}}.
+
+\end{thebibliography}

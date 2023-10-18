@@ -1,0 +1,19 @@
+
+\begin{figure}
+  \begin{tikzpicture}
+    \Vertex[x=0, style=dashed, size=1.5, label=$z_{...}$, fontscale=2.]{A}
+    \Vertex[x=3,size=1.5, label=$z_{t-1}$, fontscale=2.]{B}
+    \Vertex[x=6,size=1.5, label=$z_{t}$, fontscale=2.]{C}
+    \Vertex[x=9,size=1.5, label=$z_{t}$, fontscale=2.]{D}
+    \Vertex[x=12, style=dashed, size=1.5, label=$z_{...}$, fontscale=2.]{E}
+
+    \Edge[label=$F_{\Theta}$,position=above, Direct](A)(B)
+    \Edge[label=$F_{\Theta}$,position=above, Direct](B)(C)
+    \Edge[label=$F_{\Theta}$,position=above, Direct](C)(D)
+    \Edge[label=$F_{\Theta}$,position=above, Direct](D)(E)
+
+  \end{tikzpicture}
+  \caption[Basic computational graph]{\textbf{Basic computational graph}: The classical discrete dynamical system illustrated as an unfolded computational graph. Each node represents the state
+  of the system at time $t$. The function $F_{\Theta}$ maps the state at time $t$ to the state at time $t+1$. The parameters $\Theta$ stay constant through time.}
+  \label{fig:basic_graph}
+\end{figure}

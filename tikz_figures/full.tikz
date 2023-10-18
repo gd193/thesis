@@ -1,0 +1,60 @@
+
+\begin{figure}
+  \begin{tikzpicture}
+    \Vertex[x=0, style=dashed, size=1.5, label=$z_{...}$, fontscale=2.]{E0}
+
+    \Vertex[x=3, y=-3, size=1.5, label=$s_{t-1}$, fontscale=2.]{A0}
+    \Vertex[x=6, y=-3, size=1.5, label=$s_{t}$, fontscale=2.]{B0}
+    \Vertex[x=9, y=-3, size=1.5, label=$s_{t+1}$, fontscale=2.]{C0}
+
+    \Vertex[x=3, size=1.5, label=$z_{t-1}$, fontscale=2.]{A1}
+    \Vertex[x=6, size=1.5, label=$z_{t}$, fontscale=2.]{B1}
+    \Vertex[x=9, size=1.5, label=$z_{t+1}$, fontscale=2.]{C1}
+
+    \Vertex[x=3, y=3, size=1.5, label=$\hat{x}_{t-1}$, fontscale=2.]{A2}
+    \Vertex[x=6, y=3, size=1.5, label=$\hat{x}_{t}$, fontscale=2.]{B2}
+    \Vertex[x=9, y=3, size=1.5, label=$\hat{x}_{t+1}$, fontscale=2.]{C2}
+
+    \Vertex[x=3, y=6, size=1.5, label=$\mathcal{L}_{t-1}$, fontscale=2.]{A3}
+    \Vertex[x=6, y=6, size=1.5, label=$\mathcal{L}_{t}$, fontscale=2.]{B3}
+    \Vertex[x=9, y=6, size=1.5, label=$\mathcal{L}_{t+1}$, fontscale=2.]{C3}
+
+    \Vertex[x=3, y=9, size=1.5, label=$x_{t-1}$, fontscale=2.]{A4}
+    \Vertex[x=6, y=9, size=1.5, label=$x_{t}$, fontscale=2.]{B4}
+    \Vertex[x=9, y=9, size=1.5, label=$x_{t+1}$, fontscale=2.]{C4}
+
+
+
+    \Vertex[x=12, style=dashed, size=1.5, label=$z_{...}$, fontscale=2.]{E1}
+
+    \Edge[label=$F_{\Theta}$,position=above, fontscale=1.5, Direct](E0)(A1)
+
+    \Edge[label=$F_{\Theta}$,position=above, fontscale=1.5, Direct](A1)(B1)
+    \Edge[label=$F_{\Theta}$,position=above, fontscale=1.5, Direct](B1)(C1)
+
+    \Edge[label=$c$, position=above, Direct](A0)(A1)
+    \Edge[label=$c$, position=above, Direct](B0)(B1)
+    \Edge[label=$c$, position=above, Direct](C0)(C1)
+
+    \Edge[label=$g$, position={below left=2mm}, fontscale=1.5, Direct](A1)(A2)
+    \Edge[label=$g$, position={below left=2mm}, fontscale=1.5, Direct](B1)(B2)
+    \Edge[label=$g$, position={below left=2mm}, fontscale=1.5, Direct](C1)(C2)
+
+    \Edge[position=above, Direct](A2)(A3)
+    \Edge[position=above, Direct](B2)(B3)
+    \Edge[position=above, Direct](C2)(C3)
+
+    \Edge[position=above, Direct](A4)(A3)
+    \Edge[position=above, Direct](B4)(B3)
+    \Edge[position=above, Direct](C4)(C3)
+
+
+    \Edge[label=$F_{\Theta}$,position=above, fontscale=1.5, Direct](C1)(E1)
+  \end{tikzpicture}
+
+  \caption[Full graph of a recurrent neural network]{\textbf{Full graph of a recurrent neural network:} The RNN evolves forward in time from state $z_{t-1}$ to $z_{t}$ 
+  with $F_{\Theta}$. Additional external inputs $s_{t}$ are added to the state $z_{t}$ via the function $c$.
+  Observations $\hat{x}_t$ are produced from state $z_t$ by the observation function $g$. 
+  The observations $\hat{x}_t$ and the ground truth $x_t$ are used to compute the loss $\mathcal{L}_t$.}
+  \label{fig:full_graph}
+\end{figure}

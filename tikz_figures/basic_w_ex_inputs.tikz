@@ -1,0 +1,33 @@
+
+\begin{figure}
+  \begin{tikzpicture}
+    \Vertex[x=0, style=dashed, size=1.5, label=$z_{...}$, fontscale=2.]{E0}
+
+    \Vertex[x=3, y=-3, size=1.5, label=$s_{t-1}$, fontscale=2.]{A0}
+    \Vertex[x=6, y=-3, size=1.5, label=$s_{t}$, fontscale=2.]{B0}
+    \Vertex[x=9, y=-3, size=1.5, label=$s_{t+1}$, fontscale=2.]{C0}
+
+    \Vertex[x=3, size=1.5, label=$z_{t-1}$, fontscale=2.]{A1}
+    \Vertex[x=6, size=1.5, label=$z_{t}$, fontscale=2.]{B1}
+    \Vertex[x=9, size=1.5, label=$z_{t+1}$, fontscale=2.]{C1}
+
+
+    \Vertex[x=12, style=dashed, size=1.5, label=$z_{...}$, fontscale=2.]{E1}
+
+    \Edge[label=$F_{\Theta}$,position=above, fontscale=1.5, Direct](E0)(A1)
+
+    \Edge[label=$F_{\Theta}$,position=above, fontscale=1.5, Direct](A1)(B1)
+    \Edge[label=$F_{\Theta}$,position=above, fontscale=1.5, Direct](B1)(C1)
+
+    \Edge[position=above, Direct](A0)(A1)
+    \Edge[position=above, Direct](B0)(B1)
+    \Edge[position=above, Direct](C0)(C1)
+
+    \Edge[label=$F_{\Theta}$,position=above, fontscale=1.5, Direct](C1)(E1)
+
+
+
+  \end{tikzpicture}
+    \caption{Computational graph of recurrent neural network with external inputs.}
+    \label{fig:basic_w_inputs}
+\end{figure}
